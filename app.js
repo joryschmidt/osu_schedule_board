@@ -4,7 +4,6 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
-var sass = require('node-sass-middleware');
 var sessions = require('client-sessions');
 
 var main = require('./routes/main');
@@ -14,18 +13,9 @@ var admin = require('./routes/admin');
 var db = 'mongodb://' + process.env.IP + '/sched';
 
 mongoose.Promise = bluebird;
-mongoose.connect(process.env.MONGODB_URI || db);
+mongoose.connect(process.env.MONGODB_URI || db, { useMongoClient: true });
 
 var app = express();
-
-// Middleware for Sass, session functionality, and req.body
-app.use(sass({
-  src: path.join(__dirname, 'views/css/sass'),
-  dest: path.join(__dirname, 'views/css'),
-  debug: false,
-  outputStyle: 'expanded',
-  prefix: '/css'
-}));
 
 app.use(sessions({
   cookieName: 'session',

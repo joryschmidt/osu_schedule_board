@@ -17,26 +17,20 @@
   "author": "Jory Schmidt",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.2",
+    "bcrypt": "^3.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "client-sessions": "^0.8.0",
+    "cors": "^2.8.5",
     "express": "^4.15.3",
     "md5": "^2.2.1",
     "mongoose": "^4.10.4",
     "morgan": "^1.8.2",
-    "node-sass-middleware": "^0.11.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "node-sass": "^4.5.3",
-    "npm-run-all": "^4.1.1",
-    "postcss-cli": "^4.1.1",
-    "sinon": "^7.1.0",
-    "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7"
   }
 }

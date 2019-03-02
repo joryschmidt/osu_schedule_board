@@ -1,0 +1,20 @@
+.request {
+  position: fixed;
+  padding: 5rem;
+  background-color: #ccc;
+  top: 50%;
+  left: 50%;
+  
+  &__form {
+    
+    
+    &__box {
+      
+    }
+    
+    &__checkboxes {
+      display: grid;
+      grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    }
+  }
+}

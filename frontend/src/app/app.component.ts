@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'OSU Schedule Board';
+  newRequest = false;
+  
+  
+  newFlight() {
+    this.newRequest = !this.newRequest;
+  }
 }

@@ -24,10 +24,7 @@ var FlightSchema = new Schema({
   CW: Boolean,
   WFP: Boolean,
   WP: Boolean,
-  FT: Boolean
-  Coffee: Boolean,
-  Ice: Boolean,
-  Papers: Boolean
+  CIP: Boolean
 });
 
 module.exports = mongoose.model('Flight', FlightSchema);

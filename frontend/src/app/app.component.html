@@ -1,4 +1,4 @@
-<div>Schedule Board</div>
+<header>Schedule Board</header>
 <div class="board">
   <div class="section section--1">
     <app-plane></app-plane>
@@ -14,6 +14,10 @@
     
     <app-plane></app-plane>
   </div>
+</div>
+<div class="controls">
+  <button class="new" (click)="newFlight()">New Flight</button>
+  <app-request *ngIf="newRequest"></app-request>
 </div>
 
 <!--<router-outlet></router-outlet>-->

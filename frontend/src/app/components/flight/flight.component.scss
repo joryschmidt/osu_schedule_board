@@ -1,0 +1,22 @@
+.flight {
+  height: 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 4fr;
+  border: 1px solid grey;
+  
+  &__date {
+    
+    background-color: green;
+  }
+  
+  &__time {
+    
+    background-color: yellow;
+  }
+  
+  &__details {
+    
+    background-color: blue;
+  }
+}

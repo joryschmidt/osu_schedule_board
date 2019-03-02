@@ -1,0 +1,14 @@
+.plane {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  width: 100%;
+  border: 2px solid orangered;
+  
+  &__flights {
+    
+  }
+  
+  &__tail {
+    background-color: purple;
+  }
+}

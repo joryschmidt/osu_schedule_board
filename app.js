@@ -11,7 +11,6 @@ var main = require('./routes/main');
 var admin = require('./routes/admin');
 
 var db = 'mongodb://' + process.env.IP + '/sched';
-
 mongoose.Promise = bluebird;
 mongoose.connect(process.env.MONGODB_URI || db, { useMongoClient: true });
 
@@ -28,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 
 app.use('/', main);
 // app.use('/user', user);

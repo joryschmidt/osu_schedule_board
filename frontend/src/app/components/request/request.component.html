@@ -1,17 +1,23 @@
 <div class="request">
+  <h2 class="request__header">New Request</h2>
   <form action="" class="request__form">
     
-    <div class="request__form__box">
-      <label for="tail" class="request__form__box__label">Tail</label><input type="text" name="tail" class="request__form__box__input" />
+    <div class="request__form__left">
+      <div class="request__form__box">
+        <label for="tail" class="request__form__box__label">Tail</label><input type="text" name="tail" class="request__form__box__input" />
+      </div>
+      <div class="request__form__box">
+        <label for="date" class="request__form__box__label">Date</label><input type="date" name="date" class="request__form__box__input" />
+      </div>
+      <div class="request__form__box">
+        <label for="time" class="request__form__box__label">Time</label><input type="text" name="time" class="request__form__box__input" />
+      </div>
     </div>
-    <div class="request__form__box">
-      <label for="date" class="request__form__box__label">Date</label><input type="date" name="date" class="request__form__box__input" />
-    </div>
-    <div class="request__form__box">
-      <label for="time" class="request__form__box__label">Time</label><input type="time" name="time" class="request__form__box__input" />
-    </div>
-    <div class="request__form__box">
-      <label for="remarks" class="request__form__box__label">Remarks</label><input type="text" name="remarks" class="request__form__box__input" />
+    <div class="request__form__right">
+      <div class="request__form__box">
+        <label for="remarks" class="request__form__box__label">Remarks</label>
+        <textarea name="remarks" id="" cols="30" rows="10" class="request__form__box__input"></textarea>
+      </div>
     </div>
     
     

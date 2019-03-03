@@ -6,13 +6,18 @@
   top: 20rem;
   left: 40rem;
   
-  &__form {
+  &__header {
     
+  }
+  
+  &__form {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
     
     &__box {
-      display: grid;
-      grid-template-columns: 2fr 5fr;
       margin: 1rem;
+      display: grid;
+      grid-template-columns: 2fr 4fr
       
       &__label {
         
@@ -20,8 +25,17 @@
       
       &__input {
         padding: .5rem;
+        width: 100%;
         border: none;
         border-radius: 2px;
+      }
+      
+      &__left {
+        
+      }
+      
+      &__right {
+        
       }
     }
     

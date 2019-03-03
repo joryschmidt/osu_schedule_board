@@ -1,15 +1,28 @@
 .request {
   position: fixed;
   padding: 5rem;
+  width: 50%;
   background-color: #ccc;
-  top: 50%;
-  left: 50%;
+  top: 20rem;
+  left: 40rem;
   
   &__form {
     
     
     &__box {
+      display: grid;
+      grid-template-columns: 2fr 5fr;
+      margin: 1rem;
       
+      &__label {
+        
+      }
+      
+      &__input {
+        padding: .5rem;
+        border: none;
+        border-radius: 2px;
+      }
     }
     
     &__checkboxes {

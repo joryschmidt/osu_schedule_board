@@ -2,15 +2,20 @@ var Flight = require('../models/Flight.model');
 var Hangar = require('../models/Hangar.model');
 var Plane = require('../models/Plane.model');
 
-// Database response handler
-function handler(err, data) {
-  if (err) {
-    console.log(err);
-    res.status(500).end();
-  } else res.json(data);
+// Mongoose callback handler function
+function handler(res) {
+  return function(err, data) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log(data);
+      res.json(data);
+    }
+  }
 }
 
-// Create new flight information
+// Flights
 
 exports.createFlight = function(req, res) {
   var newFlight = new Flight();
@@ -20,33 +25,76 @@ exports.createFlight = function(req, res) {
   newFlight.time = req.body.time;
   newFlight.remarks = req.body.remarks;
   
-  newFlight.save(function(err, flight) {
-    if (err) console.log(err);
-    else {
-      console.log(flight);
-      res.json(flight);
-    }
-  });
+  newFlight.save(handler(res));
 };
 
 exports.getFlight = function(req, res) {
-  Flight.find({ _id: req.body.id }, handler);
+  Flight.find({ _id: req.body.id }, handler(res));
 };
 
-exports.getAllFlights = function(req, res) {
-  Flight.find().exec(function(err, flights) {
-    if (err) console.log(err);
-    else res.json(flights);
-  })
+exports.getFlights = function(req, res) {
+  Flight.find().exec(handler(res));
 };
 
 exports.updateFlight = function(req, res) {
-  Flight.update({ _id: req.body.id }, { $set: {}}, function(err, flight) {
-    if (err) res.status(500).end();
-    else res.json(flight);
-  });
+  Flight.update({ _id: req.body.id }, { $set: {}}, handler(res));
 };
 
 exports.deleteFlight = function(req, res) {
-  
+  Flight.remove({ _id: req.body.id }, handler(res));
 };
+
+// Planes
+
+exports.createPlane = function(req, res) {
+  
+  var newPlane = new Plane();
+  newPlane.tail = req.body.tail;
+  newPlane.hangar = req.body.hangar;
+  newPlane.based = req.body.based;
+  newPlane.flights = [];
+  
+  newPlane.save(handler(res));
+};
+
+exports.getPlane = function(req, res) {
+  Plane.find({ _id: req.body. id }, handler(res));
+};
+
+exports.getPlanes = function(req, res) {
+  Plane.find().exec(handler(res));
+};
+
+exports.updatePlane = function(req, res) {
+  Plane.update({ _id: req.body.id }, { $set: {}}, handler(res));
+};
+
+exports.deletePlane = function(req, res) {
+  Plane.remove({ _id: req.body.id }, handler(res));
+};
+
+// Hangar
+
+exports.createHangar = function(req, res) {
+  var newHangar = new Hangar();
+  newHangar.number = req.body.number;
+  newHangar.aircraft = [];
+  
+  newHangar.save(handler(res));
+};
+
+exports.getHangar = function(req, res) {
+  Hangar.find({ _id: req.body.id }, handler(res));
+};
+
+exports.getHangars = function(req, res) {
+  Hangar.find().exec(handler(res));
+};
+
+exports.updateHangar = function(req, res) {
+  Hangar.update({ _id: req.body.id }, handler(res));
+};
+
+exports.deleteHangar = function(req, res) {
+  Hangar.remove({ _id: req.body. id}, handler(res));
+}

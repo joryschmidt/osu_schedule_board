@@ -7,6 +7,9 @@ var bluebird = require('bluebird');
 var sessions = require('client-sessions');
 
 var main = require('./routes/main');
+var flight = require('./routes/flight');
+var plane = require('./routes/plane');
+var hangar = require('./routes/hangar');
 // var user = require('./routes/user');
 var admin = require('./routes/admin');
 
@@ -32,6 +35,9 @@ app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 app.use('/', main);
 // app.use('/user', user);
 app.use('/admin', requireAdmin, admin);
+app.use('/flight', flight);
+app.use('/plane', plane);
+app.use('/hangar', hangar);
 
 var port = process.env.PORT;
 app.listen(port, function() {

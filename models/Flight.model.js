@@ -18,20 +18,6 @@ var FlightSchema = new Schema({
   remarks: {
     type: String
   }
-  // ,
-  // fuel_type: {
-  //   type: String 
-  // },
-  // fuel_load: {
-  //   type: Number
-  // }
-  // RON: Boolean,
-  // WC: Boolean,
-  // WA: Boolean,
-  // CW: Boolean,
-  // WFP: Boolean,
-  // WP: Boolean,
-  // CIP: Boolean
 });
 
 module.exports = mongoose.model('Flight', FlightSchema);

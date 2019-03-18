@@ -7,6 +7,8 @@ router.get('/', board_controller.getFlight);
 
 router.get('/all', board_controller.getFlights);
 
+router.get('/aircraft', board_controller.getFlightsByAircraft);
+
 router.post('/', board_controller.updateFlight);
 
 router.post('/new', board_controller.createFlight);

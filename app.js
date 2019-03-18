@@ -30,11 +30,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
+
+
+
+
+
+// REMEMBER TO REQUIREADMIN LATER
+
+app.use('/admin-panel', express.static(path.join(__dirname, 'admin')));
+//app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 
 app.use('/', main);
 // app.use('/user', user);
-app.use('/admin', requireAdmin, admin);
+
+// REQUIREADMIN
+app.use('/admin', admin);
 app.use('/flight', flight);
 app.use('/plane', plane);
 app.use('/hangar', hangar);

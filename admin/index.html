@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <title>Admin Panel</title>
+</head>
+<body>
+  <h2 class="header">Admin Panel</h2>
+  <div class="panel">
+    <div class="users">
+      <h3 class="users__header">Users</h3>
+      <form action="/user/new" class="users__form">
+        
+      </form>
+    </div>
+    
+    <div class="planes">
+      <h3 class="planes__header">Planes</h3>
+      <div class="planes__new">
+        <h4 class="planes__new__header">New</h4>
+        <form action="/plane/new" method="post" class="planes__new__form">
+          <input type="text" name="tail" placeholder="Tail #" />
+          <input type="text" name="hangar" placeholder="Hangar #" />
+          <input type="hidden" name="based" value="true" />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+      
+      <div class="planes__edit">
+        <h4 class="planes__edit__header">Edit</h4>
+        <form action="/plane" method="post" class="planes__edit__form">
+          <select name="tail" id="plane-tails"></select>
+        </form>
+      </div>
+    </div>
+    
+    <div class="hangars">
+      <h3 class="hangars__header">Hangars</h3>
+      <div class="hangars__new">
+        <h4 class="hangars__new__header">New</h4>
+        <form action="/hangars/new" method="post" class="hangars__form">
+          <input type="text" name="number" placeholder="Number" />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+    
+    </div>
+  <script type="text/javascript" src="bower_components/axios/dist/axios.min.js"></script>
+  <!--Populate edit plane tails-->
+  <script type="text/javascript">
+    var tails = document.getElementById('plane-tails');
+    
+    // get based planes with axios and...
+    var axiosObject = {}; // 
+    for (var prop in axiosObject) {
+      tails.options[tails.options.length] = new Option('axiosObjectText', 'axiosObjectValue');
+    }
+  </script>
+</body>
+</html>

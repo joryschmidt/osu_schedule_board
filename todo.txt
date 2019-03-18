@@ -1,0 +1,2 @@
+Make hangars into selects in plane admin
+Simplify data structures so calls to database are primarily focused on aircraft

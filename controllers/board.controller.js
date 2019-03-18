@@ -56,11 +56,18 @@ exports.createPlane = function(req, res) {
   
   var newPlane = new Plane();
   newPlane.tail = req.body.tail;
-  newPlane.hangar = req.body.hangar;
-  if (req.body.based == "true") newPlane.based = true;
+  if (req.body.hangar) newPlane.hangar = req.body.hangar;
+  if (req.body.based) newPlane.based = true;
   newPlane.flights = [];
   
-  newPlane.save(handler(res));
+  newPlane.save(function(err, plane) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else if (req.body.based) {
+      Hangar.update({ number: req.body.hangar }, { $push: { aircraft: plane._id }}, handler(res));
+    }
+  });
 };
 
 exports.getPlane = function(req, res) {
@@ -84,7 +91,14 @@ exports.updatePlane = function(req, res) {
 };
 
 exports.deletePlane = function(req, res) {
-  Plane.remove({ _id: req.body.id }, handler(res));
+  Plane.remove({ tail: req.body.tail }, function(err, plane) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      Hangar.update({ number: plane.hangar }, { $pull: { aircraft: plane._id }}, handler(res));
+    }
+  });
 };
 
 // Hangar
@@ -109,6 +123,7 @@ exports.updateHangar = function(req, res) {
   Hangar.update({ _id: req.body.id }, handler(res));
 };
 
+// perhaps delete all planes in hangar if hangar is deleted
 exports.deleteHangar = function(req, res) {
-  Hangar.remove({ _id: req.body. id}, handler(res));
+  Hangar.remove({ number: req.body.number }, handler(res));
 }

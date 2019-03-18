@@ -10,8 +10,7 @@ var PlaneSchema = new Schema({
     uppercase: true
   },
   hangar: {
-    type: Schema.Types.ObjectId,
-    ref: 'Hangar'
+    type: Number
   },
   flights: [{ type: Schema.Types.ObjectId, ref: 'Flight' }],
   based: {

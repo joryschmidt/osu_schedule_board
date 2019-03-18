@@ -12,15 +12,30 @@
   <div class="panel">
     <div class="users">
       <h3 class="users__header">Users</h3>
-      <form action="/user/new" class="users__form">
-        
-      </form>
+      <div class="users__new">
+        <h4 class="users__new__header">New</h4>
+        <form action="/user/new" method="post" class="users__form">
+          <input type="text" name="username" placeholder="Username" />
+          <input type="text" name="password" placeholder="Password" />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+      
+      <div class="users__remove">
+        <h4 class="users__remove__header">Remove</h4>
+        <form action="/user/delete" class="users__remove__form">
+          <select name="userId" id="user-ids">
+            <option value="">User</option>
+          </select>
+          <input type="submit" value="Remove">
+        </form>
+      </div>
     </div>
     
     <div class="planes">
-      <h3 class="planes__header">Planes</h3>
+      <h3 class="planes__header">Aircraft</h3>
       <div class="planes__new">
-        <h4 class="planes__new__header">New</h4>
+        <h4 class="planes__new__header">New Based</h4>
         <form action="/plane/new" method="post" class="planes__new__form">
           <input type="text" name="tail" placeholder="Tail #" />
           <input type="text" name="hangar" placeholder="Hangar #" />
@@ -32,33 +47,77 @@
       <div class="planes__edit">
         <h4 class="planes__edit__header">Edit</h4>
         <form action="/plane" method="post" class="planes__edit__form">
-          <select name="tail" id="plane-tails"></select>
+          <select name="tail" class="plane-tails" id="plane-tails">
+            <option value="">Tail #</option>
+          </select>
+          <input type="text" name="hangar" placeholder="Hangar #" />
+          <input type="hidden" name="based" value="true" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
+      
+      <div class="planes__remove">
+        <h4 class="planes__remove__header">Remove</h4>
+        <form action="/plane/delete" class="planes__remove__form">
+          <select name="tail" id="plane-tailsdelete">
+            <option value="">Tail #</option>
+          </select>
+          <input type="submit" value="Remove">
+        </form>
+      </div>
+      
     </div>
     
     <div class="hangars">
       <h3 class="hangars__header">Hangars</h3>
       <div class="hangars__new">
         <h4 class="hangars__new__header">New</h4>
-        <form action="/hangars/new" method="post" class="hangars__form">
+        <form action="/hangar/new" method="post" class="hangars__form">
           <input type="text" name="number" placeholder="Number" />
           <input type="submit" value="Submit" />
+        </form>
+      </div>
+      
+      <div class="hangars__remove">
+        <h4 class="hangars__remove__header">Remove</h4>
+        <form action="/hangar/delete" class="hangars__remove__form">
+          <select name="number" id="hangar-numbers">
+            <option value="">Hangar #</option>
+          </select>
+          <input type="submit" value="Remove">
         </form>
       </div>
     </div>
     
     </div>
   <script type="text/javascript" src="bower_components/axios/dist/axios.min.js"></script>
-  <!--Populate edit plane tails-->
+  
+  <!--Populate plane tails-->
   <script type="text/javascript">
     var tails = document.getElementById('plane-tails');
+    var tailsd = document.getElementById('plane-tailsdelete');
     
-    // get based planes with axios and...
-    var axiosObject = {}; // 
-    for (var prop in axiosObject) {
-      tails.options[tails.options.length] = new Option('axiosObjectText', 'axiosObjectValue');
-    }
+    axios.get('/plane/based').then(function(response) {
+      var planes = response.data;
+      planes.forEach(function(plane) {
+        tails.options[tails.options.length] = new Option(plane.tail, plane.tail);
+        tailsd.options[tailsd.options.length] = new Option(plane.tail, plane.tail);
+      });
+    }).catch(function(err) {
+      console.log(err);
+    }); // 
+  </script>
+  
+  <!--Populate hangar numbers-->
+  <script type="text/javascript">
+    var numbers = document.getElementById('hangar-numbers');
+    
+    axios.get('/hangar/all').then(function(response) {
+      var hangars = response.data;
+      hangars.forEach((h) => numbers.options[numbers.options.length] = new Option(h.number, h.number));
+    }).catch(function(err) {
+      console.log(err);
+    });
   </script>
 </body>
 </html>

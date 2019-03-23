@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
 var sessions = require('client-sessions');
+var cors = require('cors');
 
 var main = require('./routes/main');
 var flight = require('./routes/flight');
@@ -30,7 +31,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-
+// set cors headers for development
+app.use(cors());
 
 
 
@@ -49,7 +51,8 @@ app.use('/flight', flight);
 app.use('/plane', plane);
 app.use('/hangar', hangar);
 
-var port = process.env.PORT;
+// var port = process.env.PORT;
+var port = 8081;
 app.listen(port, function() {
   console.log('App listening on port', port);
 });

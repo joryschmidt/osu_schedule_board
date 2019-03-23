@@ -1,0 +1,20 @@
+{
+  "/flight/*" : {
+    "target": "https://skillsquire-joryschmidt.c9users.io:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/plane/*" : {
+    "target": "https://skillsquire-joryschmidt.c9users.io:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/hangar/*" : {
+    "target": "https://skillsquire-joryschmidt.c9users.io:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

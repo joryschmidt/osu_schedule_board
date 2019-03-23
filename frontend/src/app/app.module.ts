@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,12 +13,13 @@ import { RequestComponent } from './components/request/request.component';
   declarations: [
     AppComponent,
     PlaneComponent,
-    FlightComponent,
-    RequestComponent
+    RequestComponent,
+    FlightComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NoopAnimationsModule
   ],
   providers: [],

@@ -87,7 +87,8 @@ exports.getTransientPlanes = function(req, res) {
 }
 
 exports.updatePlane = function(req, res) {
-  Plane.update({ _id: req.body.id }, { $set: {}}, handler(res));
+  if (req.body.hangar) Plane.update({ _id: req.body.id }, { $set: { hangar: req.body.hangar }}, handler(res));
+  else Plane.update({ _id: req.body.id }, { $unset: { hangar: "" }});
 };
 
 exports.deletePlane = function(req, res) {

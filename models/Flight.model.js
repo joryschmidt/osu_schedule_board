@@ -2,12 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FlightSchema = new Schema({
-  aircraft: {
-    type: Schema.Types.ObjectId,
-    ref: 'Plane'
-  },
   tail: {
-    type: String
+    type: String,
+    required: true
   },
   date: {
     type: Date

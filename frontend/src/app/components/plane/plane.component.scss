@@ -2,13 +2,15 @@
   display: grid;
   grid-template-columns: 1fr 5fr;
   width: 100%;
-  border: 2px solid orangered;
+  border-top: 1px solid black;
+  cursor: pointer;
+  padding: 2px;
   
   &__flights {
     
   }
   
   &__tail {
-    background-color: purple;
+    
   }
 }

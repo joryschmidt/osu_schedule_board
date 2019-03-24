@@ -13,7 +13,6 @@ export class AppComponent {
   constructor(private data:DataService) {}
   
   ngOnInit() {
-    this.data.getBasedPlanes().subscribe(result => console.log(result));
   }
   
   newFlight() {

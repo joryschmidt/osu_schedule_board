@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-flight',
@@ -9,7 +9,12 @@ export class FlightComponent implements OnInit {
 
   constructor() { }
 
+  @Input() flight:any;
+
   ngOnInit() {
   }
 
+  editFlight() {
+    console.log('edit flight form');
+  }
 }

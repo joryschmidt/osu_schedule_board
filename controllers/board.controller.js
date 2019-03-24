@@ -25,8 +25,6 @@ exports.createFlight = function(req, res) {
   newFlight.time = req.body.time;
   newFlight.remarks = req.body.remarks;
   
-  if (req.body.aircraft) newFlight.aircraft = req.body.aircraft;
-  
   newFlight.save(handler(res));
 };
 
@@ -38,8 +36,8 @@ exports.getFlights = function(req, res) {
   Flight.find().exec(handler(res));
 };
 
-exports.getFlightsByAircraft = function(req, res) {
-  Flight.find({ aircraft: req.body.aircraft }, handler(res));
+exports.getFlightsByTail = function(req, res) {
+  Flight.find({ tail: req.params.tail }).sort({ date: 1 }).exec(handler(res));
 }
 
 exports.updateFlight = function(req, res) {
@@ -77,6 +75,10 @@ exports.getPlane = function(req, res) {
 exports.getPlanes = function(req, res) {
   Plane.find().exec(handler(res));
 };
+
+exports.getPlanesByHangar = function(req, res) {
+  Plane.find({ hangar: req.params.hangar }, handler(res));
+}
 
 exports.getBasedPlanes = function(req, res) {
   Plane.find({ based: true }, handler(res));

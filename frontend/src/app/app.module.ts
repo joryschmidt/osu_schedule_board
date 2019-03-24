@@ -8,13 +8,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PlaneComponent } from './components/plane/plane.component';
 import { FlightComponent } from './components/flight/flight.component';
 import { RequestComponent } from './components/request/request.component';
+import { HangarComponent } from './components/hangar/hangar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaneComponent,
     RequestComponent,
-    FlightComponent
+    FlightComponent,
+    HangarComponent
   ],
   imports: [
     BrowserModule,

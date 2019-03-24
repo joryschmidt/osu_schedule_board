@@ -1,5 +1,5 @@
-<div class="flight">
-  <div class="flight__tail"></div>
-  <div class="flight__time"></div>
-  <div class="flight__remarks"></div>
+<div class="flight" (dblclick)="editFlight()">
+  <div class="flight__item flight__date">{{ flight.date | date:'M/d/yy' }}</div>
+  <div class="flight__item flight__time">{{ flight.time }}</div>
+  <div class="flight__item flight__remarks">{{ flight.remarks }}</div>
 </div>

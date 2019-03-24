@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-plane',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaneComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data:DataService) { }
+  
+  @Input() plane:any;
+  tail:number;
+  flights:any[];
 
   ngOnInit() {
+    this.tail = this.plane.tail;
+    
+    this.data.getFlightsByTail(this.tail).subscribe(flights => this.flights = flights);
   }
 
 }

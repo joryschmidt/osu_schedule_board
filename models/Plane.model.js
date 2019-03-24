@@ -12,7 +12,6 @@ var PlaneSchema = new Schema({
   hangar: {
     type: Number
   },
-  flights: [{ type: Schema.Types.ObjectId, ref: 'Flight' }],
   based: {
     type: Boolean,
     default: false

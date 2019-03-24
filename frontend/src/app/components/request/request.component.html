@@ -1,6 +1,6 @@
 <div class="request">
   <h2 class="request__header">New Request</h2>
-  <form action="" class="request__form">
+  <form action="/flight/new" method="post" class="request__form">
     
     <div class="request__form__left">
       <div class="request__form__box">
@@ -12,6 +12,7 @@
       <div class="request__form__box">
         <label for="time" class="request__form__box__label">Time</label><input type="text" name="time" class="request__form__box__input" maxlength="4" />
       </div>
+      <input type="submit" value="Submit"/>
     </div>
     <div class="request__form__right">
       <div class="request__form__box">
@@ -19,27 +20,5 @@
         <textarea name="remarks" id="" cols="30" rows="10" class="request__form__box__input"></textarea>
       </div>
     </div>
-    
-    
-    <!--<div class="request__form__checkboxes">-->
-    <!--  <div class="request__form__checkboxes__box">-->
-    <!--    <label for="WC">WC</label><input type="checkbox" name="WC"/>-->
-    <!--  </div>-->
-    <!--  <div class="request__form__checkboxes__box">-->
-    <!--   <label for="WFP">WFP</label><input type="checkbox" name="WFP"/>-->
-    <!--  </div>-->
-    <!--  <div class="request__form__checkboxes__box">-->
-    <!--    <label for="WA">WA</label><input type="checkbox" name="WA"/>-->
-    <!--  </div>-->
-    <!--  <div class="request__form__checkboxes__box">-->
-    <!--    <label for="CW">CW</label><input type="checkbox" name="CW"/>-->
-    <!--  </div>-->
-    <!--  <div class="request__form__checkboxes__box">-->
-    <!--    <label for="CIP">CIP</label><input type="checkbox" name="CIP"/>-->
-    <!--  </div>-->
-    <!--  <div class="request__form__checkboxes__box">-->
-    <!--    <label for="RON">RON</label><input type="checkbox" name="RON"/>-->
-    <!--  </div>-->
-    <!--</div>-->
   </form>
 </div>

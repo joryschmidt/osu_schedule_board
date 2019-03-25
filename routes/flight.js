@@ -9,7 +9,7 @@ router.get('/all', board_controller.getFlights);
 
 router.get('/tail/:tail', board_controller.getFlightsByTail);
 
-router.post('/', board_controller.updateFlight);
+router.put('/', board_controller.updateFlight);
 
 router.post('/new', board_controller.createFlight);
 

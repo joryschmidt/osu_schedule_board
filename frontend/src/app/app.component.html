@@ -3,6 +3,8 @@
   <div class="section section--1">
     <div class="hangars">
       <app-hangar [hangar]="1"></app-hangar>
+      <app-hangar [hangar]="4"></app-hangar>
+      <app-hangar [hangar]="7"></app-hangar>
     </div>
   </div>
   
@@ -18,8 +20,6 @@
   </div>
 </div>
 <div class="controls">
-  <button class="new" (click)="newFlight()">New Flight</button>
-  <app-request *ngIf="newRequest"></app-request>
+  <button class="new-request-button" (click)="newFlight()">New Flight</button>
+  <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
 </div>
-
-<!--<router-outlet></router-outlet>-->

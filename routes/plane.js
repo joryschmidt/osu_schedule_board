@@ -17,6 +17,6 @@ router.post('/', board_controller.updatePlane);
 
 router.post('/new', board_controller.createPlane);
 
-router.get('/delete', board_controller.deletePlane);
+router.post('/delete', board_controller.deletePlane);
 
 module.exports = router;

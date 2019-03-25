@@ -14,7 +14,15 @@ export class DataService {
   }
   
   getFlightsByTail(tail) {
-    return this.http.get('/flight/tail/' + tail)
+    return this.http.get('/flight/tail/' + tail);
+  }
+  
+  newFlight(flightData) {
+    return this.http.post('/flight/new', flightData);
+  }
+  
+  updateFlight(flightData) {
+    return this.http.put('/flight', flightData);
   }
   
   getBasedPlanes() {

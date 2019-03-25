@@ -10,11 +10,12 @@ export class FlightComponent implements OnInit {
   constructor() { }
 
   @Input() flight:any;
+  newEditRequest:boolean = false;
 
   ngOnInit() {
   }
 
   editFlight() {
-    console.log('edit flight form');
+    this.newEditRequest = !this.newEditRequest;
   }
 }

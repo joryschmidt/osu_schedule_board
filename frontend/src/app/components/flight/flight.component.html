@@ -3,3 +3,5 @@
   <div class="flight__item flight__time">{{ flight.time }}</div>
   <div class="flight__item flight__remarks">{{ flight.remarks }}</div>
 </div>
+
+<app-edit-request *ngIf="newEditRequest" [(newEditRequest)]="newEditRequest" [aircraft]="flight"></app-edit-request>

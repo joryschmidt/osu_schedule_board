@@ -12,7 +12,7 @@ export class PlaneComponent implements OnInit {
   
   @Input() plane:any;
   tail:number;
-  flights:any[];
+  flights:any;
 
   ngOnInit() {
     this.tail = this.plane.tail;

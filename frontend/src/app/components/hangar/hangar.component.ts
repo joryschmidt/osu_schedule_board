@@ -11,7 +11,7 @@ export class HangarComponent implements OnInit {
   constructor(private data:DataService) { }
   
   @Input() hangar:number;
-  planes:any[];
+  planes:any;
 
   ngOnInit() {
     this.data.getPlanesByHangar(this.hangar).subscribe(planes => {

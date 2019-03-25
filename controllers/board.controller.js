@@ -41,7 +41,12 @@ exports.getFlightsByTail = function(req, res) {
 }
 
 exports.updateFlight = function(req, res) {
-  Flight.update({ _id: req.body.id }, { $set: {}}, handler(res));
+  Flight.update({ _id: req.body._id }, { $set: {
+    tail: req.body.tail,
+    date: req.body.date,
+    time: req.body.time,
+    remarks: req.body.remarks
+  }}, handler(res));
 };
 
 exports.deleteFlight = function(req, res) {
@@ -94,14 +99,7 @@ exports.updatePlane = function(req, res) {
 };
 
 exports.deletePlane = function(req, res) {
-  Plane.remove({ tail: req.body.tail }, function(err, plane) {
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    } else {
-      Hangar.update({ number: plane.hangar }, { $pull: { aircraft: plane._id }}, handler(res));
-    }
-  });
+  Plane.remove({ tail: req.body.tail }, handler(res));
 };
 
 // Hangar

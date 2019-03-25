@@ -8,7 +8,6 @@ function handler(res) {
       console.log(err);
       res.sendStatus(500);
     } else {
-      console.log(data);
       res.json(data);
     }
   }

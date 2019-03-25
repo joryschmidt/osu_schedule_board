@@ -1,6 +1,6 @@
 Make hangar requests, aircraft hangared, and special notices sections
 
 Add user logins to app
-Add jquery to admin panel
+Use jquery to make all database interactions through AJAX
 Style board
 Clean up backend routes 

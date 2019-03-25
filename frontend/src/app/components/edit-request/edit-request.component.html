@@ -13,8 +13,9 @@
         <label for="time" class="request__form__box__label">Time</label><input type="text" name="time" [(ngModel)]="aircraft.time" class="request__form__box__input" maxlength="4" />
       </div>
       <input type="hidden" name="id" value="aircraft._id" [(ngModel)]="aircraft._id" />
-      <button class="request__form__submit btn" (click)="submitRequest()">Submit</button>
+      <button class="request__form__edit btn" (click)="editRequest()">Edit</button>
       <button class="request__form__discard btn" (click)="discardRequest()">Discard</button>
+      <button class="request__form__completed btn" (click)="completeRequest()">Completed</button>
     </div>
     <div class="request__form__right">
       <div class="request__form__box">

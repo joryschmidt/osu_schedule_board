@@ -49,7 +49,7 @@ exports.updateFlight = function(req, res) {
 };
 
 exports.deleteFlight = function(req, res) {
-  Flight.remove({ _id: req.body.id }, handler(res));
+  Flight.remove({ _id: req.params.id }, handler(res));
 };
 
 // Planes
@@ -62,13 +62,9 @@ exports.createPlane = function(req, res) {
   if (req.body.based) newPlane.based = true;
   newPlane.flights = [];
   
-  newPlane.save(function(err, plane) {
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    } else if (req.body.based) {
-      Hangar.update({ number: req.body.hangar }, { $push: { aircraft: plane._id }}, handler(res));
-    }
+  newPlane.save(function(err, data) {
+    if (err) console.log(err);
+    else res.end(data.tail + ' has been saved to database');
   });
 };
 

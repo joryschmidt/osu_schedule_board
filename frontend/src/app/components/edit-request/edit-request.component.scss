@@ -39,14 +39,18 @@
       }
     }
     
-    &__submit {
-      background-color: green;
-      color: white;
+    &__edit {
+      background-color: yellow;
       margin-right: 3px;
     }
     
     &__discard {
       background-color: red;
+      color: white;
+    }
+    
+    &__completed {
+      background-color: green;
       color: white;
     }
   }

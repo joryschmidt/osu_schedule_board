@@ -1,2 +1,6 @@
-Make hangars into selects in plane admin
-Simplify data structures so calls to database are primarily focused on aircraft
+Make hangar requests, aircraft hangared, and special notices sections
+
+Add user logins to app
+Add jquery to admin panel
+Style board
+Clean up backend routes 

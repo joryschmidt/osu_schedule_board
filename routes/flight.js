@@ -13,6 +13,6 @@ router.put('/', board_controller.updateFlight);
 
 router.post('/new', board_controller.createFlight);
 
-router.get('/delete', board_controller.deleteFlight);
+router.delete('/:id', board_controller.deleteFlight);
 
 module.exports = router;

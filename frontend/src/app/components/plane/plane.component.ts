@@ -13,11 +13,15 @@ export class PlaneComponent implements OnInit {
   @Input() plane:any;
   tail:number;
   flights:any;
+  newRequest:boolean = false;
 
   ngOnInit() {
     this.tail = this.plane.tail;
     
     this.data.getFlightsByTail(this.tail).subscribe(flights => this.flights = flights);
   }
-
+  
+  newFlight() {
+    this.newRequest = !this.newRequest
+  }
 }

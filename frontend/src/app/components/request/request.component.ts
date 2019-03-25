@@ -9,8 +9,13 @@ import { DataService } from '../../services/data.service';
 export class RequestComponent implements OnInit {
 
   constructor(private data:DataService) { }
+  
+  ngOnInit() {
+    if (this.tail) this.aircraft.tail = this.tail;
+  }
 
-  aircraft = { }
+  aircraft = { tail: '' }
+  @Input() tail:string;
   @Input() newRequest:boolean;
   @Output() newRequestChange = new EventEmitter<boolean>();
   
@@ -21,11 +26,7 @@ export class RequestComponent implements OnInit {
   }
   
   discardRequest() {
-    this.aircraft = { };
+    this.aircraft = { tail: '' };
     this.newRequestChange.emit(false);
-  }
-
-  ngOnInit() {
-    
   }
 }

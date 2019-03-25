@@ -25,6 +25,10 @@ export class DataService {
     return this.http.put('/flight', flightData);
   }
   
+  deleteFlight(id) {
+    return this.http.delete('/flight/' + id);
+  }
+  
   getBasedPlanes() {
     return this.http.get('/plane/based');
   }

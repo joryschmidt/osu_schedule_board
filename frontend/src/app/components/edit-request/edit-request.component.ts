@@ -9,22 +9,31 @@ import { DataService } from '../../services/data.service';
 export class EditRequestComponent implements OnInit {
 
   constructor(private data:DataService) { }
+  aircraftCopy:any;
 
   ngOnInit() {
-    
+    this.aircraftCopy = Object.assign({}, this.aircraft);
   }
 
   @Input() aircraft:any;
+  @Output() aircraftChange = new EventEmitter<any>();
   @Input() newEditRequest:boolean;
   @Output() newEditRequestChange = new EventEmitter<boolean>();
   
-  submitRequest() {
+  editRequest() {
     this.data.updateFlight(this.aircraft).subscribe(response => {
       window.location.reload();
     });
   }
   
   discardRequest() {
+    this.aircraftChange.emit(this.aircraftCopy);
     this.newEditRequestChange.emit(false);
+  }
+  
+  completeRequest() {
+    this.data.deleteFlight(this.aircraft._id).subscribe(response => {
+      window.location.reload();
+    });
   }
 }

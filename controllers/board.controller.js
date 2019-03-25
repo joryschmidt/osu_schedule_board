@@ -1,5 +1,4 @@
 var Flight = require('../models/Flight.model');
-var Hangar = require('../models/Hangar.model');
 var Plane = require('../models/Plane.model');
 
 // Mongoose callback handler function
@@ -101,30 +100,3 @@ exports.updatePlane = function(req, res) {
 exports.deletePlane = function(req, res) {
   Plane.remove({ tail: req.body.tail }, handler(res));
 };
-
-// Hangar
-
-exports.createHangar = function(req, res) {
-  var newHangar = new Hangar();
-  newHangar.number = req.body.number;
-  newHangar.aircraft = [];
-  
-  newHangar.save(handler(res));
-};
-
-exports.getHangar = function(req, res) {
-  Hangar.find({ _id: req.body.id }, handler(res));
-};
-
-exports.getHangars = function(req, res) {
-  Hangar.find().exec(handler(res));
-};
-
-exports.updateHangar = function(req, res) {
-  Hangar.update({ _id: req.body.id }, handler(res));
-};
-
-// perhaps delete all planes in hangar if hangar is deleted
-exports.deleteHangar = function(req, res) {
-  Hangar.remove({ number: req.body.number }, handler(res));
-}

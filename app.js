@@ -9,7 +9,6 @@ var sessions = require('client-sessions');
 var main = require('./routes/main');
 var flight = require('./routes/flight');
 var plane = require('./routes/plane');
-var hangar = require('./routes/hangar');
 // var user = require('./routes/user');
 var admin = require('./routes/admin');
 
@@ -52,7 +51,6 @@ app.use('/', main);
 app.use('/admin', admin);
 app.use('/flight', flight);
 app.use('/plane', plane);
-app.use('/hangar', hangar);
 
 // var port = process.env.PORT;
 var port = 8081;

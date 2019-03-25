@@ -67,29 +67,6 @@
       </div>
       
     </div>
-    
-    <div class="hangars">
-      <h3 class="hangars__header">Hangars</h3>
-      <div class="hangars__new">
-        <h4 class="hangars__new__header">New</h4>
-        <form action="/hangar/new" method="post" class="hangars__form">
-          <input type="text" name="number" placeholder="Number" />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-      
-      <div class="hangars__remove">
-        <h4 class="hangars__remove__header">Remove</h4>
-        <form action="/hangar/delete" class="hangars__remove__form">
-          <select name="number" id="hangar-numbers">
-            <option value="">Hangar #</option>
-          </select>
-          <input type="submit" value="Remove">
-        </form>
-      </div>
-    </div>
-    
-    </div>
   <script type="text/javascript" src="bower_components/axios/dist/axios.min.js"></script>
   
   <!--Populate plane tails-->
@@ -106,18 +83,6 @@
     }).catch(function(err) {
       console.log(err);
     }); // 
-  </script>
-  
-  <!--Populate hangar numbers-->
-  <script type="text/javascript">
-    var numbers = document.getElementById('hangar-numbers');
-    
-    axios.get('/hangar/all').then(function(response) {
-      var hangars = response.data;
-      hangars.forEach((h) => numbers.options[numbers.options.length] = new Option(h.number, h.number));
-    }).catch(function(err) {
-      console.log(err);
-    });
   </script>
 </body>
 </html>

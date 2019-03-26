@@ -10,11 +10,8 @@ var PlaneSchema = new Schema({
     uppercase: true
   },
   hangar: {
-    type: Number
-  },
-  based: {
-    type: Boolean,
-    default: false
+    type: Number,
+    required: true
   }
 });
 

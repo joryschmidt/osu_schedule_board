@@ -1,4 +1,4 @@
-Make hangar requests, aircraft hangared, and special notices sections
+Make hangar requests, aircraft hangared, transients, and special notices sections
 
 Add user logins to app
 Use jquery to make all database interactions through AJAX

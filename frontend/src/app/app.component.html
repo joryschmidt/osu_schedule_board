@@ -9,17 +9,16 @@
   </div>
   
   <div class="section section--2">
-    
     <div class="hangars">
       <app-hangar [hangar]="9"></app-hangar>
+      <app-hangar-requests></app-hangar-requests>
     </div>
   </div>
   
   <div class="section section--3">
-    
+    <div class="controls">
+      <button class="new-request-button" (click)="newFlight()">New Request</button>
+      <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
+    </div>
   </div>
-</div>
-<div class="controls">
-  <button class="new-request-button" (click)="newFlight()">New Flight</button>
-  <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
 </div>

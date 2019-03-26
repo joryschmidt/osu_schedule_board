@@ -23,7 +23,14 @@ exports.createFlight = function(req, res) {
   newFlight.time = req.body.time;
   newFlight.remarks = req.body.remarks;
   
-  newFlight.save(handler(res));
+  
+  Plane.find({ tail: req.body.tail }, function(err, plane) {
+    if (err) console.log(err);
+    else {
+      if (!plane) newFlight.transient = true;
+      newFlight.save(handler(res));
+    }
+  });
 };
 
 exports.getFlight = function(req, res) {
@@ -31,7 +38,7 @@ exports.getFlight = function(req, res) {
 };
 
 exports.getFlights = function(req, res) {
-  Flight.find().exec(handler(res));
+  Flight.find(handler(res));
 };
 
 exports.getFlightsByTail = function(req, res) {
@@ -51,45 +58,34 @@ exports.deleteFlight = function(req, res) {
   Flight.remove({ _id: req.params.id }, handler(res));
 };
 
+
+
+
 // Planes
 
 exports.createPlane = function(req, res) {
   
   var newPlane = new Plane();
   newPlane.tail = req.body.tail;
-  if (req.body.hangar) newPlane.hangar = req.body.hangar;
-  if (req.body.based) newPlane.based = true;
-  newPlane.flights = [];
+  newPlane.hangar = req.body.hangar;
   
-  newPlane.save(function(err, data) {
-    if (err) console.log(err);
-    else res.end(data.tail + ' has been saved to database');
-  });
+  newPlane.save(handler(res));
 };
 
 exports.getPlane = function(req, res) {
-  Plane.find({ _id: req.body. id }, handler(res));
+  Plane.find({ _id: req.body._id }, handler(res));
 };
 
 exports.getPlanes = function(req, res) {
-  Plane.find().exec(handler(res));
+  Plane.find(handler(res));
 };
 
 exports.getPlanesByHangar = function(req, res) {
-  Plane.find({ hangar: req.params.hangar }, handler(res));
-}
-
-exports.getBasedPlanes = function(req, res) {
-  Plane.find({ based: true }, handler(res));
-}
-
-exports.getTransientPlanes = function(req, res) {
-  Plane.find({ based: false }, handler(res));
+  Plane.find({ hangar: req.params.hangar }).sort({ tail: 1}).exec(handler(res));
 }
 
 exports.updatePlane = function(req, res) {
-  if (req.body.hangar) Plane.update({ _id: req.body.id }, { $set: { hangar: req.body.hangar }}, handler(res));
-  else Plane.update({ _id: req.body.id }, { $unset: { hangar: "" }});
+  Plane.update({ tail: req.body.tail }, { $set: { hangar: req.body.hangar }}, handler(res));
 };
 
 exports.deletePlane = function(req, res) {

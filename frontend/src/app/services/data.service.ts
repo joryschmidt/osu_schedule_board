@@ -33,6 +33,10 @@ export class DataService {
     return this.http.get('/flight/transient');
   }
   
+  getHangarRequests() {
+    return this.http.get('/flight/requested');
+  }
+  
   getPlanesByHangar(hangar) {
     return this.http.get('/plane/hangar/' + hangar);
   }

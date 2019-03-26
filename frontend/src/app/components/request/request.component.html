@@ -24,15 +24,15 @@
         <span class="request__form__box__header">Transient Aircraft Hangared</span>
         <div class="request__form__box__radio">
           <label for="hangared" class="request__form__box__label">None</label>
-          <input type="radio" value="none" name="hangared" class="request__form__box__radio__input">
+          <input type="radio" value="none" [(ngModel)]="aircraft.hangared" name="hangared" class="request__form__box__radio__input">
         </div>
         <div class="request__form__box__radio">
           <label for="hangared" class="request__form__box__label">Requested</label>
-          <input type="radio" value="requested" name="hangared" class="request__form__box__radio__input">
+          <input type="radio" value="requested" [(ngModel)]="aircraft.hangared" name="hangared" class="request__form__box__radio__input">
         </div>
         <div class="request__form__box__radio">
           <label for="hangared" class="request__form__box__label">Hangared</label>
-          <input type="radio" value="hangared" name="hangared" class="request__form__box__radio__input">
+          <input type="radio" value="hangared" [(ngModel)]="aircraft.hangared" name="hangared" class="request__form__box__radio__input">
         </div>
       </div>
     </div>

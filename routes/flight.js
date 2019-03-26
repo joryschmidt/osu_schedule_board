@@ -11,6 +11,8 @@ router.get('/tail/:tail', board_controller.getFlightsByTail);
 
 router.get('/transient', board_controller.getTransientFlights);
 
+router.get('/requested', board_controller.getHangarRequests);
+
 router.put('/', board_controller.updateFlight);
 
 router.post('/new', board_controller.createFlight);

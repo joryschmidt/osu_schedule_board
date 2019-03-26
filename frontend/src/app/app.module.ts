@@ -12,6 +12,7 @@ import { RequestComponent } from './components/request/request.component';
 import { HangarComponent } from './components/hangar/hangar.component';
 import { EditRequestComponent } from './components/edit-request/edit-request.component';
 import { HangarRequestsComponent } from './components/hangar-requests/hangar-requests.component';
+import { TransientsComponent } from './components/transients/transients.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HangarRequestsComponent } from './components/hangar-requests/hangar-req
     FlightComponent,
     HangarComponent,
     EditRequestComponent,
-    HangarRequestsComponent
+    HangarRequestsComponent,
+    TransientsComponent
   ],
   imports: [
     BrowserModule,

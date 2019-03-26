@@ -53,6 +53,10 @@ exports.getTransientFlights = function(req, res) {
   Flight.find({ transient: true }).sort({ created: 1 }).exec(handler(res));
 }
 
+exports.getHangarRequests = function(req, res) {
+  Flight.find({ hangared: 'requested' }).sort({ created: 1 }).exec(handler(res));
+}
+
 exports.updateFlight = function(req, res) {
   Flight.update({ _id: req.body._id }, { $set: {
     tail: req.body.tail,

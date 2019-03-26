@@ -5,5 +5,4 @@ Use jquery to make all database interactions through AJAX
 Style board
 Clean up backend routes 
 
-add ngmodel to radio buttons
 update frontend and backend logic to reflect new hangared attribute for flight

@@ -75,7 +75,7 @@
     var tails = document.getElementById('plane-tails');
     var tailsd = document.getElementById('plane-tailsdelete');
     
-    axios.get('/plane/based').then(function(response) {
+    axios.get('/plane/all').then(function(response) {
       var planes = response.data;
       planes.forEach(function(plane) {
         tails.options[tails.options.length] = new Option(plane.tail, plane.tail);

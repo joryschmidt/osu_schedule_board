@@ -17,9 +17,7 @@
     &__box {
       margin: 1rem;
       display: grid;
-      grid-template-columns: 2fr 4fr
       
-      // figure out why this isn't working, it's bizarre
       &__label {
         margin-bottom: .7rem;
       }

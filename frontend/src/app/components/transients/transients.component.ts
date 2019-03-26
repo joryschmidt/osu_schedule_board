@@ -14,7 +14,7 @@ export class TransientsComponent implements OnInit {
 
   ngOnInit() {
     this.data.getTransientFlights().subscribe(flights => {
-      if (Array.isArray(flights)) flights.filter(flight => flight.transient);
+      if (Array.isArray(flights)) flights = flights.filter(flight => !flight.hangared || flight.hangared == 'none');
       this.flights = flights;
     });
   }

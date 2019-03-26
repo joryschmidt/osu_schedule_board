@@ -1,4 +1,5 @@
-<div class="flight" (dblclick)="editFlight()">
+<div class="flight" [ngClass]="{ 'flight--transient': flight.transient == true }" (dblclick)="editFlight()">
+  <div class="flight__item flight__tail" *ngIf="flight.transient">{{ flight.tail }}</div>
   <div class="flight__item flight__date">{{ flight.date | date:'M/d/yy' }}</div>
   <div class="flight__item flight__time">{{ flight.time }}</div>
   <div class="flight__item flight__remarks">{{ flight.remarks }}</div>

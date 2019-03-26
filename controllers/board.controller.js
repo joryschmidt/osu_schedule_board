@@ -13,6 +13,9 @@ function handler(res) {
   }
 }
 
+
+
+
 // Flights
 
 exports.createFlight = function(req, res) {
@@ -27,7 +30,8 @@ exports.createFlight = function(req, res) {
   Plane.find({ tail: req.body.tail }, function(err, plane) {
     if (err) console.log(err);
     else {
-      if (!plane) newFlight.transient = true;
+      console.log(plane);
+      if (plane.length === 0) newFlight.transient = true;
       newFlight.save(handler(res));
     }
   });
@@ -43,6 +47,10 @@ exports.getFlights = function(req, res) {
 
 exports.getFlightsByTail = function(req, res) {
   Flight.find({ tail: req.params.tail }).sort({ date: 1 }).exec(handler(res));
+}
+
+exports.getTransientFlights = function(req, res) {
+  Flight.find({ transient: true }).sort({ created: 1 }).exec(handler(res));
 }
 
 exports.updateFlight = function(req, res) {

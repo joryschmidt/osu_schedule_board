@@ -19,11 +19,8 @@ var FlightSchema = new Schema({
     type: Date,
     default: Date.now()
   },
-  hangarRequested: {
-    type: Boolean
-  },
   hangared: {
-    type: Boolean
+    type: String
   },
   transient: {
     type: Boolean

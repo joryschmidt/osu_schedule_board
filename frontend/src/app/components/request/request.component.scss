@@ -19,8 +19,9 @@
       display: grid;
       grid-template-columns: 2fr 4fr
       
+      // figure out why this isn't working, it's bizarre
       &__label {
-        
+        margin-bottom: .7rem;
       }
       
       &__input {
@@ -30,13 +31,24 @@
         border-radius: 2px;
       }
       
-      &__left {
+      &__radio {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem;
         
+        &__input {
+          
+        }
       }
+    }
+    
+    &__left {
       
-      &__right {
-        
-      }
+    }
+    
+    &__right {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
     }
     
     &__submit {

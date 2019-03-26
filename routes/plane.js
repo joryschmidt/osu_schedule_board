@@ -7,11 +7,7 @@ router.get('/', board_controller.getPlane);
 
 router.get('/all', board_controller.getPlanes);
 
-router.get('/based', board_controller.getBasedPlanes);
-
 router.get('/hangar/:hangar', board_controller.getPlanesByHangar);
-
-router.get('/transient', board_controller.getTransientPlanes);
 
 router.post('/', board_controller.updatePlane);
 

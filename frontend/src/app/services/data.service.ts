@@ -29,12 +29,8 @@ export class DataService {
     return this.http.delete('/flight/' + id);
   }
   
-  getBasedPlanes() {
-    return this.http.get('/plane/based');
-  }
-  
-  getTransientPlanes() {
-    return this.http.get('/plane/transient');
+  getTransientFlights() {
+    return this.http.get('/flight/transient');
   }
   
   getPlanesByHangar(hangar) {

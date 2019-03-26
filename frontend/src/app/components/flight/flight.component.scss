@@ -24,4 +24,9 @@
   &__remarks {
     padding-left: 4px;
   }
+  
+  &--transient {
+    grid-template-columns: repeat(3, 1fr) 4fr;
+  }
 }
+

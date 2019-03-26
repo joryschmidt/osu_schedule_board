@@ -13,8 +13,9 @@ export class HangarRequestsComponent implements OnInit {
   flights:any;
 
   ngOnInit() {
-    this.data.getTransientPlanes().subscribe(planes => {
-      this.flights = planes.filter(plane => plane.hangarRequested);
+    this.data.getTransientFlights().subscribe(flights => {
+      this.flights = flights.filter(flight => flight.transient);
+      console.log(this.flights);
     });
   }
 

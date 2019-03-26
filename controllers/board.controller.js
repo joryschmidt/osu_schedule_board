@@ -25,6 +25,7 @@ exports.createFlight = function(req, res) {
   newFlight.date = req.body.date;
   newFlight.time = req.body.time;
   newFlight.remarks = req.body.remarks;
+  if (req.body.hangared) newFlight.hangared = req.body.hangared;
   
   
   Plane.find({ tail: req.body.tail }, function(err, plane) {
@@ -62,7 +63,8 @@ exports.updateFlight = function(req, res) {
     tail: req.body.tail,
     date: req.body.date,
     time: req.body.time,
-    remarks: req.body.remarks
+    remarks: req.body.remarks,
+    hangared: req.body.hangared
   }}, handler(res));
 };
 

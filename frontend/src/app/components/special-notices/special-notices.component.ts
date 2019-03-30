@@ -11,7 +11,7 @@ export class SpecialNoticesComponent implements OnInit {
   constructor(private data:DataService) { }
   
   @Input() newNoticeBool:boolean = false;
-  @Output() newNoticeBoolChange = new EventEmitter<boolean>;
+  @Output() newNoticeBoolChange = new EventEmitter<boolean>();
   editNoticeBool:boolean = false;
   
   notices:any;

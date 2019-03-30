@@ -1,0 +1,9 @@
+.hangared-aircraft {
+  min-height: 15rem;
+  
+  &__header {
+    border-bottom: 1px solid black;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+  }
+}

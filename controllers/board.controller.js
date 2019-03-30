@@ -97,7 +97,7 @@ exports.getPlane = function(req, res) {
 };
 
 exports.getPlanes = function(req, res) {
-  Plane.find(handler(res));
+  Plane.find().sort({ tail: 1 }).exec(handler(res));
 };
 
 exports.getPlanesByHangar = function(req, res) {

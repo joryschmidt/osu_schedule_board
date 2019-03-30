@@ -12,6 +12,9 @@ var PlaneSchema = new Schema({
   hangar: {
     type: Number,
     required: true
+  },
+  RON: {
+    type: Boolean
   }
 });
 

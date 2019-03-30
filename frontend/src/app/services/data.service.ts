@@ -44,4 +44,8 @@ export class DataService {
   getPlanesByHangar(hangar) {
     return this.http.get('/plane/hangar/' + hangar);
   }
+  
+  getAllNotices() {
+    return this.http.get('/notice');
+  }
 }

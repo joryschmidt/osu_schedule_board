@@ -9,10 +9,12 @@ import { DataService } from './services/data.service';
 export class AppComponent {
   title:string = 'OSU Schedule Board';
   newRequest:boolean = false;
+  notices:any;
   
   constructor(private data:DataService) {}
   
   ngOnInit() {
+    this.data.getAllNotices().subscribe(notices => this.notices = notices);
   }
   
   newFlight() {

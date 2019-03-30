@@ -16,5 +16,11 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/notice/*" : {
+    "target": "https://skillsquire-joryschmidt.c9users.io:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

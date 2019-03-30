@@ -14,6 +14,7 @@ import { EditRequestComponent } from './components/edit-request/edit-request.com
 import { HangarRequestsComponent } from './components/hangar-requests/hangar-requests.component';
 import { TransientsComponent } from './components/transients/transients.component';
 import { HangaredAircraftComponent } from './components/hangared-aircraft/hangared-aircraft.component';
+import { NoticeComponent } from './components/notice/notice.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HangaredAircraftComponent } from './components/hangared-aircraft/hangar
     EditRequestComponent,
     HangarRequestsComponent,
     TransientsComponent,
-    HangaredAircraftComponent
+    HangaredAircraftComponent,
+    NoticeComponent
   ],
   imports: [
     BrowserModule,

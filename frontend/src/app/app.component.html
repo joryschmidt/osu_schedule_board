@@ -18,6 +18,10 @@
   
   <div class="section section--3">
       <app-transients></app-transients>
+      <div class="special-notices">
+        <span class="special-notices__header">Special Notices</span>
+        <app-notice *ngFor="let notice of notices" [notice]="notice"></app-notice>
+      </div>
     <div class="controls">
       <button class="new-request-button" (click)="newFlight()">New Request</button>
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>

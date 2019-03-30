@@ -37,6 +37,10 @@ export class DataService {
     return this.http.get('/flight/requested');
   }
   
+  getHangaredAircraft() {
+    return this.http.get('/flight/hangared');
+  }
+  
   getPlanesByHangar(hangar) {
     return this.http.get('/plane/hangar/' + hangar);
   }

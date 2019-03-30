@@ -12,11 +12,12 @@
     <div class="hangars">
       <app-hangar [hangar]="9"></app-hangar>
       <app-hangar-requests></app-hangar-requests>
-      <app-transients></app-transients>
+      <app-hangared-aircraft></app-hangared-aircraft>
     </div>
   </div>
   
   <div class="section section--3">
+      <app-transients></app-transients>
     <div class="controls">
       <button class="new-request-button" (click)="newFlight()">New Request</button>
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>

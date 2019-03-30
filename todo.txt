@@ -1,9 +1,5 @@
 Make hangar requests, aircraft hangared, transients, and special notices sections
 
 Add user logins to app
-Use jquery to make all database interactions through AJAX
+Use jquery to make all database interactions through AJAX in admin panel
 Style board
-Clean up backend routes 
-
-for edit request form, make sure radio none is checked by default
-update frontend and backend logic to reflect new hangared attribute for flight

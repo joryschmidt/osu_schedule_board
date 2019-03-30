@@ -13,6 +13,7 @@ import { HangarComponent } from './components/hangar/hangar.component';
 import { EditRequestComponent } from './components/edit-request/edit-request.component';
 import { HangarRequestsComponent } from './components/hangar-requests/hangar-requests.component';
 import { TransientsComponent } from './components/transients/transients.component';
+import { HangaredAircraftComponent } from './components/hangared-aircraft/hangared-aircraft.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TransientsComponent } from './components/transients/transients.componen
     HangarComponent,
     EditRequestComponent,
     HangarRequestsComponent,
-    TransientsComponent
+    TransientsComponent,
+    HangaredAircraftComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 var Flight = require('../models/Flight.model');
 var Plane = require('../models/Plane.model');
+var Notice = require('../models/Notice.model');
 
 // Mongoose callback handler function
 function handler(res) {
@@ -58,7 +59,12 @@ exports.getHangarRequests = function(req, res) {
   Flight.find({ hangared: 'requested' }).sort({ created: 1 }).exec(handler(res));
 }
 
+exports.getHangaredAircraft = function(req, res) {
+  Flight.find({ hangared: 'hangared' }, handler(res));
+}
+
 exports.updateFlight = function(req, res) {
+  // if (!req.body.hangared) req.body.hangared = 'none';
   Flight.update({ _id: req.body._id }, { $set: {
     tail: req.body.tail,
     date: req.body.date,
@@ -105,3 +111,29 @@ exports.updatePlane = function(req, res) {
 exports.deletePlane = function(req, res) {
   Plane.remove({ tail: req.body.tail }, handler(res));
 };
+
+// Special Notices
+
+exports.getNotice = function(req, res) {
+  Notice.find({ _id: req.body.id }, handler(res));
+}
+
+exports.getAllNotices = function(req, res) {
+  Notice.find(handler(res));
+}
+
+exports.updateNotice = function(req, res) {
+  Notice.update({ _id: req.body.id }, { $set: { text: req.body.text }}, handler(res))
+}
+
+exports.createNotice = function(req, res) {
+  
+  var newNotice = new Notice();
+  newNotice.text = req.body.text;
+  
+  newNotice.save(handler(res));
+}
+
+exports.deleteNotice = function(req, res) {
+  Notice.remove({ _id: req.body.id }, handler(res));
+}

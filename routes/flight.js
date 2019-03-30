@@ -13,6 +13,8 @@ router.get('/transient', board_controller.getTransientFlights);
 
 router.get('/requested', board_controller.getHangarRequests);
 
+router.get('/hangared', board_controller.getHangaredAircraft);
+
 router.put('/', board_controller.updateFlight);
 
 router.post('/new', board_controller.createFlight);

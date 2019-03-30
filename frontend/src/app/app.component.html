@@ -18,22 +18,11 @@
   
   <div class="section section--3">
       <app-transients></app-transients>
-      <div class="special-notices">
-        <span class="special-notices__header">Special Notices</span>
-        <app-notice *ngFor="let notice of notices" [notice]="notice"></app-notice>
-      </div>
+      <app-special-notices [(newNoticeBool)]="newNoticeBool"></app-special-notices>
     <div class="controls">
       <button class="new-request-button board__button" (click)="newFlight()">New Request</button>
       <button class="new-notice-button board__button" (click)="newNotice()">New Special Notice</button>
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
     </div>
   </div>
-</div>
-
-<div class="new-notice" *ngIf="newNoticeBool">
-  <div class="new-notice__header">New Special Request</div>
-  <form class="new-notice__form">
-    <textarea name="text" [(ngModel)]="newNoticeObj.text" placeholder="Text..." class="new-notice__form__input"></textarea>
-    <button class="new-notice__form__button" (click)="submitNewNotice()">Submit</button>
-  </form>
 </div>

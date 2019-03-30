@@ -12,14 +12,9 @@ export class AppComponent {
   newRequest:boolean = false;
   newNoticeBool:boolean = false;
   
-  notices:any;
-  newNoticeObj:any;
-  
   constructor(private data:DataService) {}
   
   ngOnInit() {
-    this.data.getAllNotices().subscribe(notices => this.notices = notices);
-    this.newNoticeObj = {};
   }
   
   newFlight() {
@@ -28,11 +23,5 @@ export class AppComponent {
   
   newNotice() {
     this.newNoticeBool = !this.newNoticeBool;
-  }
-  
-  submitNewNotice() {
-    this.data.submitNotice(this.newNoticeObj).subscribe(response => {
-      console.log('New notice submitted');
-    });
   }
 }

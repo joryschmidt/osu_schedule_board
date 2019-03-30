@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-notice',
@@ -11,9 +11,22 @@ export class NoticeComponent implements OnInit {
 
   ngOnInit() {
     this.text = this.notice.text;
+    this.noticeCopy = this.notice;
   }
   
-  @Input() notice:any;
   text:string;
+  noticeCopy:any;
+  
+  @Input() notice:any;
+  
+  @Input() editNoticeBool:boolean;
+  @Output() editNoticeBoolChange = new EventEmitter<boolean>();
+  
+  @Input() editNoticeObj:any;
+  @Output() editNoticeObjChange = new EventEmitter<any>();
 
+  editNotice() {
+    this.editNoticeObjChange.emit(this.noticeCopy);
+    this.editNoticeBoolChange.emit(!this.editNoticeBool);
+  }
 }

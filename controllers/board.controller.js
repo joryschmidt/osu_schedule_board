@@ -115,7 +115,7 @@ exports.deletePlane = function(req, res) {
 // Special Notices
 
 exports.getNotice = function(req, res) {
-  Notice.find({ _id: req.body.id }, handler(res));
+  Notice.find({ _id: req.params.id }, handler(res));
 }
 
 exports.getAllNotices = function(req, res) {
@@ -123,7 +123,7 @@ exports.getAllNotices = function(req, res) {
 }
 
 exports.updateNotice = function(req, res) {
-  Notice.update({ _id: req.body.id }, { $set: { text: req.body.text }}, handler(res))
+  Notice.update({ _id: req.body._id }, { $set: { text: req.body.text }}, handler(res))
 }
 
 exports.createNotice = function(req, res) {
@@ -135,5 +135,5 @@ exports.createNotice = function(req, res) {
 }
 
 exports.deleteNotice = function(req, res) {
-  Notice.remove({ _id: req.body.id }, handler(res));
+  Notice.remove({ _id: req.params.id }, handler(res));
 }

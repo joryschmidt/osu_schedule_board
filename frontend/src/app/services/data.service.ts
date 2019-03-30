@@ -52,4 +52,12 @@ export class DataService {
   submitNotice(notice) {
     return this.http.post('/notice', notice);
   }
+  
+  editNotice(notice) {
+    return this.http.put('/notice', notice);
+  }
+  
+  deleteNotice(id) {
+    return this.http.delete('/notice/' + id);
+  }
 }

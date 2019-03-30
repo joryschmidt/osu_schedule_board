@@ -12,23 +12,50 @@ export class SpecialNoticesComponent implements OnInit {
   
   @Input() newNoticeBool:boolean = false;
   @Output() newNoticeBoolChange = new EventEmitter<boolean>;
+  editNoticeBool:boolean = false;
   
   notices:any;
   newNoticeObj:any;
+  editNoticeObj:any;
 
   ngOnInit() {
     this.data.getAllNotices().subscribe(notices => this.notices = notices);
     this.newNoticeObj = {};
+    this.editNoticeObj = {};
   }
 
+  // New Notice Methods
   submitNewNotice() {
     this.data.submitNotice(this.newNoticeObj).subscribe(response => {
-      console.log('New notice submitted');
+      window.location.reload();
     });
   }
   
   discardNotice() {
     this.newNoticeObj = {};
     this.newNoticeBoolChange.emit(false);
+  }
+  
+  // Edit Notice Methods
+  submitEditNotice() {
+    console.log(this.editNoticeObj);
+    this.data.editNotice(this.editNoticeObj).subscribe(response => {
+      window.location.reload();
+    });
+  }
+  
+  editNotice() {
+    this.editNoticeBool = !this.editNoticeBool;
+  }
+  
+  discardEditNotice() {
+    this.editNoticeObj = {};
+    this.editNoticeBool = !this.editNoticeBool;
+  }
+  
+  deleteNotice() {
+    this.data.deleteNotice(this.editNoticeObj._id).subscribe(response => {
+      window.location.reload();
+    });
   }
 }

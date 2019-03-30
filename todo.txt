@@ -1,6 +1,6 @@
 Make new request and notice form popups disappear when clicked outside of the box
-special notices should go to an edit form
+Style board
+add time parsing logic to add colors to requests
 
 Add user logins to app
 Use jquery to make all database interactions through AJAX in admin panel
-Style board

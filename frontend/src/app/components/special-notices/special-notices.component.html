@@ -1,13 +1,23 @@
 <div class="special-notices">
   <span class="special-notices__header">Special Notices</span>
-  <app-notice *ngFor="let notice of notices" [notice]="notice"></app-notice>
+  <app-notice *ngFor="let notice of notices" [notice]="notice" [(editNoticeBool)]="editNoticeBool" [(editNoticeObj)]="editNoticeObj"></app-notice>
 </div>
 
 <div class="new-notice" *ngIf="newNoticeBool">
-  <div class="new-notice__header">New Special Request</div>
+  <div class="new-notice__header">New Special Notice</div>
   <form class="new-notice__form">
     <textarea name="text" [(ngModel)]="newNoticeObj.text" placeholder="Text..." class="new-notice__form__input"></textarea>
-    <button class="new-notice__form__button new-notice__form__button--submit" (click)="submitNewNotice()">Submit</button>
-    <button class="new-notice__form__button new-notice__form__button--discard" (click)="discardNotice()">Discard</button>
+    <button class="new-notice__form__button form__button new-notice__form__button--submit" (click)="submitNewNotice()">Submit</button>
+    <button class="new-notice__form__button form__button new-notice__form__button--discard" (click)="discardNotice()">Discard</button>
+  </form>
+</div>
+
+<div class="edit-notice" *ngIf="editNoticeBool">
+  <div class="edit-notice__header">Edit Special Notice</div>
+  <form class="edit-notice__form">
+    <textarea name="text" [(ngModel)]="editNoticeObj.text" placeholder="Text..." class="edit-notice__form__input"></textarea>
+    <button class="edit-notice__form__button form__button edit-notice__form__button--submit" (click)="submitEditNotice()">Submit Changes</button>
+    <button class="edit-notice__form__button form__button edit-notice__form__button--discard" (click)="discardEditNotice()">Discard Changes</button>
+    <button class="edit-notice__form__button form__button edit-notice__form__button--delete" (click)="deleteNotice()">Delete Notice</button>
   </form>
 </div>

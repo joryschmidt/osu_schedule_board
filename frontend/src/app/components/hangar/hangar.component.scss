@@ -4,5 +4,21 @@
   
   &__header {
     padding: 3px;
+    
+    &--1 {
+      background: linear-gradient(to right, white, teal);
+    }
+    
+    &--4 {
+      background: linear-gradient(to right, white, orangered);
+    }
+    
+    &--7 {
+      background: linear-gradient(to right, white, rebeccapurple);
+    }
+    
+    &--9 {
+      background: linear-gradient(to right, white, darkgreen);
+    }
   }
 }

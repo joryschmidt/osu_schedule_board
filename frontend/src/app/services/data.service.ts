@@ -48,4 +48,8 @@ export class DataService {
   getAllNotices() {
     return this.http.get('/notice');
   }
+  
+  submitNotice(notice) {
+    return this.http.post('/notice', notice);
+  }
 }

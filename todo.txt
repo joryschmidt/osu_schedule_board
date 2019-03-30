@@ -1,4 +1,5 @@
-Make hangar requests, aircraft hangared, transients, and special notices sections
+Make new request and notice form popups disappear when clicked outside of the box
+special notices should go to an edit form
 
 Add user logins to app
 Use jquery to make all database interactions through AJAX in admin panel

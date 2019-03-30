@@ -8,16 +8,31 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent {
   title:string = 'OSU Schedule Board';
+  
   newRequest:boolean = false;
+  newNoticeBool:boolean = false;
+  
   notices:any;
+  newNoticeObj:any;
   
   constructor(private data:DataService) {}
   
   ngOnInit() {
     this.data.getAllNotices().subscribe(notices => this.notices = notices);
+    this.newNoticeObj = {};
   }
   
   newFlight() {
     this.newRequest = !this.newRequest;
+  }
+  
+  newNotice() {
+    this.newNoticeBool = !this.newNoticeBool;
+  }
+  
+  submitNewNotice() {
+    this.data.submitNotice(this.newNoticeObj).subscribe(response => {
+      console.log('New notice submitted');
+    });
   }
 }

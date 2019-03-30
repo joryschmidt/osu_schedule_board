@@ -1,4 +1,4 @@
 <div class="hangar">
-  <div class="hangar__header">Hangar {{ hangar }}</div>
+  <div class="hangar__header hangar__header--{{ hangar }}">Hangar {{ hangar }}</div>
   <app-plane *ngFor="let plane of planes" [plane]="plane"></app-plane>
 </div>

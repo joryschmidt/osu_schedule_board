@@ -1,5 +1,12 @@
 .board {
   display: flex;
+  
+  &__button {
+    padding: .8rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
 }
 
 .section {
@@ -8,12 +15,8 @@
 }
 
 .new-request-button {
-  padding: .8rem;
   color: white;
-  border: none;
-  border-radius: 3px;
   background-color: green;
-  cursor: pointer;
 }
 
 .special-notices {
@@ -21,5 +24,27 @@
   &__header {
     
   }
+}
+
+.new-notice {
+  position: fixed;
+  padding: 5rem;
+  width: 50%;
+  background-color: #ccc;
+  top: 20rem;
+  left: 40rem;
   
+  &__form {
+    
+    &__input {
+      border: none;
+      width: 50rem;
+      height: 30rem;
+    }
+  }
+}
+
+.new-notice-button {
+  background-color: teal;
+  color: white;
 }

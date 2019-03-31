@@ -12,13 +12,21 @@
       <div class="request__form__box">
         <label for="time" class="request__form__box__label">Time</label><input type="text" name="time" [(ngModel)]="aircraft.time" class="request__form__box__input" maxlength="4" />
       </div>
-      <button class="request__form__submit btn" (click)="submitRequest()">Submit</button>
-      <button class="request__form__discard btn" (click)="discardRequest()">Discard</button>
+      <div class="request__form__left__buttons">
+        <button class="request__form__left__buttons--submit btn" (click)="submitRequest()">Submit</button>
+        <button class="request__form__left__buttons--discard btn" (click)="discardRequest()">Discard</button>
+      </div>
     </div>
     <div class="request__form__right">
-      <div class="request__form__box">
-        <label for="remarks" class="request__form__box__label">Remarks</label>
-        <textarea name="remarks" [(ngModel)]="aircraft.remarks" cols="30" rows="10" class="request__form__box__input"></textarea>
+      <div class="request__form__right__main">
+        <div class="request__form__box">
+          <label for="remarks" class="request__form__box__label">Remarks</label>
+          <textarea name="remarks" [(ngModel)]="aircraft.remarks" cols="30" rows="10" class="request__form__box__input"></textarea>
+        </div>
+        <div class="request__form__RON">
+          <label for="RON" class="request__form__RON__label">RON</label>
+          <input type="checkbox" name="RON" [(ngModel)]="aircraft.RON" value="true" class="request__form__RON__input," />
+        </div>
       </div>
       <div>
         <span class="request__form__box__header">Transient Aircraft Hangared</span>

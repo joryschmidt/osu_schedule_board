@@ -2,9 +2,10 @@
   position: fixed;
   padding: 5rem;
   width: 50%;
-  background-color: #ccc;
+  background-color: lighten(#f00, 30%);
   top: 20rem;
   left: 40rem;
+  border-radius: 4px;
   
   &__header {
     
@@ -27,6 +28,7 @@
         width: 100%;
         border: none;
         border-radius: 2px;
+        font-family: Roboto, sans-serif;
       }
       
       &__radio {
@@ -38,10 +40,36 @@
           
         }
       }
+      
+    }
+    
+    &__RON {
+      
+      &__label {
+        margin: 0 1rem;
+      }
+      
+      &__input {
+        
+      }
     }
     
     &__left {
       
+      &__buttons {
+        margin-left: 1rem;
+        
+        &--submit {
+          background-color: darkgreen;
+          color: white;
+          margin-right: 3px;
+        }
+        
+        &--discard {
+          background-color: firebrick;
+          color: white;
+        }
+      }
     }
     
     &__right {
@@ -49,22 +77,13 @@
       grid-template-columns: 2fr 1fr;
     }
     
-    &__submit {
-      background-color: darkgreen;
-      color: white;
-      margin-right: 3px;
-    }
-    
-    &__discard {
-      background-color: orangered;
-      color: white;
-    }
   }
 }
 
 .btn {
-  padding: .5rem;
+  padding: 1rem;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  font-family: Roboto, sans-serif;
 }

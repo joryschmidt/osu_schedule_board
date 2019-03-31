@@ -15,6 +15,9 @@ var FlightSchema = new Schema({
   remarks: {
     type: String
   },
+  RON: {
+    type: Boolean
+  },
   created: {
     type: Date,
     default: Date.now()

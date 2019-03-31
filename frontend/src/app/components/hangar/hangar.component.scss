@@ -6,19 +6,19 @@
     padding: 3px;
     
     &--1 {
-      background: linear-gradient(to right, white, teal);
+      background: linear-gradient(to right, lighten(blanchedalmond, 5%), teal);
     }
     
     &--4 {
-      background: linear-gradient(to right, white, orangered);
+      background: linear-gradient(to right, lighten(blanchedalmond, 5%), orangered);
     }
     
     &--7 {
-      background: linear-gradient(to right, white, rebeccapurple);
+      background: linear-gradient(to right, lighten(blanchedalmond, 5%), rebeccapurple);
     }
     
     &--9 {
-      background: linear-gradient(to right, white, darkgreen);
+      background: linear-gradient(to right, lighten(blanchedalmond, 5%), darkgreen);
     }
   }
 }

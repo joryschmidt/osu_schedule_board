@@ -2,8 +2,7 @@
                                   'red': displayStyle == 'red', 
                                   'yellow': displayStyle == 'yellow', 
                                   'purple': displayStyle == 'purple', 
-                                  'green': displayStyle == 'green',
-                                  'brown': displayStyle == 'brown'
+                                  'green': displayStyle == 'green'
 }" (dblclick)="editFlight()">
   <div class="flight__item flight__tail" *ngIf="flight.transient">{{ flight.tail }}</div>
   <div class="flight__item flight__date">{{ flight.date | date:'M/d/yy' }}</div>

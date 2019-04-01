@@ -16,13 +16,15 @@ export class FlightComponent implements OnInit {
   displayStyle:string;
 
   ngOnInit() {
-    this.displayStyle = this.determineStyle();
+    // remove conditional statement to apply styles to transients
+    if (this.based) this.displayStyle = this.determineStyle();
   }
 
   editFlight() {
     this.newEditRequest = !this.newEditRequest;
   }
   
+  // this method determines if a flight should be given a background color
   determineStyle() {
     if (this.flight.RON) return 'green';
     
@@ -43,7 +45,6 @@ export class FlightComponent implements OnInit {
       var minutes = Number(time.slice(2,4));
       date = DateTime.local(year, month, day, hours, minutes);
       diff = now.diff(date, 'days').toObject().days;
-      console.log(diff);
       
       // turns red if date is today, there's a time, and it's 30 minutes prior to over
       if (now.plus({ minutes: 30 }) > date && date.day == now.day && diff < 1 && diff > -1) return 'red';
@@ -51,7 +52,6 @@ export class FlightComponent implements OnInit {
     
     date = DateTime.local(year, month, day);
     diff = now.diff(date, 'days').toObject().days;
-    console.log(diff);
     
     // checks if date is today
     if (diff > -1 && diff < 1 && now.day == date.day) return 'yellow';

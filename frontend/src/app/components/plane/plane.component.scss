@@ -4,14 +4,13 @@
   width: 100%;
   border-top: 1px solid black;
   cursor: pointer;
-  padding: 2px;
   
   &__flights {
     
   }
   
   &__tail {
-    
+    margin: .4rem;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;

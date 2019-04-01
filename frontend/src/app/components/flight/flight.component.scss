@@ -2,9 +2,10 @@
   
   display: grid;
   grid-template-columns: 1fr 1fr 5fr;
+  align-items: center;
   width: 100%;
-  min-height: 2rem;
-  padding: 2px;
+  min-height: 2.7rem;
+  padding: 3px;
   
   &__item {
     &:not(:last-child) {
@@ -38,21 +39,17 @@
 }
 
 .red {
-  background-color: red;
+  background: linear-gradient(to right, lighten(blanchedalmond, 5%), red);
 }
 
 .yellow {
-  background-color: yellow;
+  background: linear-gradient(to right, lighten(blanchedalmond, 5%), yellow);
 }
 
 .purple {
-  background-color: purple;
+  background: linear-gradient(to right, lighten(blanchedalmond, 5%), purple);
 }
 
 .green {
-  background-color: green;
-}
-
-.brown {
-  background-color: brown;
+  background: linear-gradient(to right, lighten(blanchedalmond, 5%), green);
 }

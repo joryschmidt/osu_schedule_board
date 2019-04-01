@@ -1,7 +1,7 @@
 <div class="plane">
   <div class="plane__tail" (dblclick)="newFlight()">{{ tail }}</div>
   <div class="plane__flights">
-    <app-flight *ngFor="let flight of flights" [flight]="flight" class="app-flight"></app-flight>
+    <app-flight *ngFor="let flight of flights" [flight]="flight" [based]="true" class="app-flight"></app-flight>
   </div>
 </div>
 <app-request *ngIf="newRequest" [(newRequest)]="newRequest" [tail]="tail"></app-request>

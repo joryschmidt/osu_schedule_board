@@ -32,6 +32,8 @@ export class FlightComponent implements OnInit {
     if (!date) return false;
     
     var now = DateTime.local();
+    var diff;
+    
     var year = Number(date.slice(0,4));
     var month = Number(date.slice(5,7));
     var day = Number(date.slice(8,10));
@@ -40,21 +42,23 @@ export class FlightComponent implements OnInit {
       var hours = Number(time.slice(0,2));
       var minutes = Number(time.slice(2,4));
       date = DateTime.local(year, month, day, hours, minutes);
+      diff = now.diff(date, 'days').toObject().days;
+      console.log(diff);
       
-      console.log(this.flight.tail, now.day, now.plus({ days: 1 }).day, date.day);
-      if (now.plus({ minutes: 30 }) > date) return 'red';
-      if (now.day == date.day) return 'yellow';
-      // this must check for months in advance
-      if (now.plus({ days: 1 }).day == date.day) return 'purple';
-      
-    } 
-    
-    date = DateTime.local(year, month, day);
-    if (now.month == date.month) {
-      if (now.day == date.day) return 'yellow';
-      if (now.plus({ days: 1 }).day == date.day) return 'purple';
+      // turns red if date is today, there's a time, and it's 30 minutes prior to over
+      if (now.plus({ minutes: 30 }) > date && date.day == now.day && diff < 1 && diff > -1) return 'red';
     }
     
-    // else return false;
+    date = DateTime.local(year, month, day);
+    diff = now.diff(date, 'days').toObject().days;
+    console.log(diff);
+    
+    // checks if date is today
+    if (diff > -1 && diff < 1 && now.day == date.day) return 'yellow';
+    
+    // checks if date is specifically tomorrow
+    if (diff > -2 && diff < 2 && now.plus({ days: 1}).day == date.day) return 'purple';
+      
+    return false;
   }
 }

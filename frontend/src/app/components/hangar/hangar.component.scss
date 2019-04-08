@@ -1,24 +1,27 @@
+$color-osu: #b00;
+
 .hangar {
   border: 1px solid black;
   margin: 1rem;
   
   &__header {
     padding: 3px;
+    background: linear-gradient(to right, lighten(blanchedalmond, 5%), $color-osu 35%);
     
     &--1 {
-      background: linear-gradient(to right, lighten(blanchedalmond, 5%), teal);
+      
     }
     
     &--4 {
-      background: linear-gradient(to right, lighten(blanchedalmond, 5%), orangered);
+      
     }
     
     &--7 {
-      background: linear-gradient(to right, lighten(blanchedalmond, 5%), olive);
+     
     }
     
     &--9 {
-      background: linear-gradient(to right, lighten(blanchedalmond, 5%), sienna);
+      
     }
   }
 }

@@ -2,7 +2,7 @@
   position: fixed;
   padding: 5rem;
   width: 50%;
-  background-color: #ccc;
+  background-color: #ecdfce;
   top: 20rem;
   left: 40rem;
   
@@ -27,6 +27,7 @@
         width: 100%;
         border: none;
         border-radius: 2px;
+        font-family: Roboto, sans-serif;
       }
       
       &__radio {
@@ -40,29 +41,47 @@
       }
     }
     
+    &__RON {
+      
+      &__label {
+        margin: 0 1rem;
+      }
+      
+      &__input {
+        
+      }
+    }
+    
     &__left {
       
+      &__buttons {
+        margin: .5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        
+        
+        &--edit {
+          background-color: darkgreen;
+          color: white;
+        }
+        
+        &--discard {
+          background-color: firebrick;
+          color: white;
+        }
+        
+        &--completed {
+          background-color: teal;
+          color: white;
+        }
+      }
     }
     
     &__right {
       
       display: grid;
       grid-template-columns: 2fr 1fr;
-    }
-    
-    &__edit {
-      background-color: darkkhaki;
-      margin-right: 3px;
-    }
-    
-    &__discard {
-      background-color: coral;
-      color: white;
-    }
-    
-    &__completed {
-      background-color: darkolivegreen;
-      color: white;
     }
   }
 }

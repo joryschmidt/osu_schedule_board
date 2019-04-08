@@ -1,6 +1,5 @@
 Make new request and notice form popups disappear when clicked outside of the box
 Style board
 
-Add RON to edit request form
 Add user logins to app
 Use jquery to make all database interactions through AJAX in admin panel

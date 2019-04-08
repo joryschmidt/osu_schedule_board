@@ -11,10 +11,14 @@
 .new-notice {
   position: fixed;
   padding: 5rem;
-  width: 50%;
-  background-color: #ccc;
+  width: 32%;
+  background-color: #ecdfce;
   top: 20rem;
-  left: 40rem;
+  left: 65rem;
+  
+  &__header {
+    margin-bottom: .5rem;
+  }
   
   &__form {
     
@@ -22,28 +26,41 @@
       border: none;
       width: 50rem;
       height: 30rem;
+      font-family: 'Roboto', sans-serif;
+      padding: .5rem;
     }
     
     &__button {
+      color: white;
+      width: 25%;
       
       &--submit {
-        
+        background-color: darkgreen;
       }
       
       &--discard {
-        
+        background-color: firebrick;
       }
     }
+    
+  }
+  
+  &__buttons {
+    margin-top: .5rem;
   }
 }
 
 .edit-notice {
   position: fixed;
   padding: 5rem;
-  width: 50%;
-  background-color: #ccc;
+  width: 32%;
+  background-color: #ecdfce;
   top: 20rem;
-  left: 40rem;
+  left: 65rem;
+  
+  &__header {
+    margin-bottom: .5rem;
+  }
   
   &__form {
     
@@ -51,22 +68,33 @@
       border: none;
       width: 50rem;
       height: 30rem;
+      font-family: 'Roboto', sans-serif;
+      padding: .5rem;
     }
     
     &__button {
+      color: white;
+      width: 25%;
       
       &--submit {
         
+        background-color: darkgreen;
       }
       
       &--discard {
         
+        background-color: firebrick;
       }
       
       &--delete {
         
+        background-color: teal;
       }
     }
+  }
+  
+  &__buttons {
+    margin-top: .5rem;
   }
 }
 

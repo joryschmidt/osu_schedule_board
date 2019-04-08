@@ -25,13 +25,13 @@ export class FlightComponent implements OnInit {
   }
   
   // this method determines if a flight should be given a background color
-  determineStyle() {
+  determineStyle():string {
     if (this.flight.RON) return 'green';
     
     if (this.flight.date) var date = this.flight.date;
     if (this.flight.time) var time = this.flight.time;
     
-    if (!date) return false;
+    if (!date) return '';
     
     var now = DateTime.local();
     var diff;
@@ -40,7 +40,7 @@ export class FlightComponent implements OnInit {
     var month = Number(date.slice(5,7));
     var day = Number(date.slice(8,10));
     
-    else if (time) {
+    if (time) {
       var hours = Number(time.slice(0,2));
       var minutes = Number(time.slice(2,4));
       date = DateTime.local(year, month, day, hours, minutes);
@@ -59,6 +59,6 @@ export class FlightComponent implements OnInit {
     // checks if date is specifically tomorrow
     if (diff > -2 && diff < 2 && now.plus({ days: 1}).day == date.day) return 'purple';
       
-    return false;
+    return '';
   }
 }

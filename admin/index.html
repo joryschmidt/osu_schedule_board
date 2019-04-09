@@ -14,11 +14,11 @@
       <h3 class="users__header">Users</h3>
       <div class="users__new">
         <h4 class="users__new__header">New</h4>
-        <form action="/user/new" method="post" class="users__form">
-          <input type="text" name="username" placeholder="Username" />
-          <input type="text" name="password" placeholder="Password" />
-          <input type="submit" value="Submit" />
+        <form class="users__form">
+          <input type="text" id="username" name="username" placeholder="Username" />
+          <input type="text" id="user_pass" name="password" placeholder="Password" />
         </form>
+        <button class="users__form__submit" id="submitUser">Submit</button>
       </div>
       
       <div class="users__remove">
@@ -27,8 +27,8 @@
           <select name="userId" id="user-ids">
             <option value="">User</option>
           </select>
-          <input type="submit" value="Remove">
         </form>
+        <button class="users__remove__btn" id="removeUser"></button>
       </div>
     </div>
     
@@ -46,34 +46,33 @@
       
       <div class="planes__edit">
         <h4 class="planes__edit__header">Edit</h4>
-        <form action="/plane" method="post" class="planes__edit__form">
+        <form class="planes__edit__form">
           <select name="tail" class="plane-tails" id="plane-tails">
             <option value="">Tail #</option>
           </select>
-          <input type="text" name="hangar" placeholder="Hangar #" />
-          <input type="hidden" name="based" value="true" />
-          <input type="submit" value="Submit" />
+          <input type="text" name="hangar" placeholder="Hangar #" id="edit-hangar" />
         </form>
+        <button class="planes__edit__btn" id="editPlane">Edit</button>
       </div>
       
       <div class="planes__remove">
         <h4 class="planes__remove__header">Remove</h4>
-        <form action="/plane/delete" method="post" class="planes__remove__form">
+        <form class="planes__remove__form">
           <select name="tail" id="plane-tailsdelete">
             <option value="">Tail #</option>
           </select>
-          <input type="submit" value="Remove">
         </form>
+        <button class="planes__remove__btn" id="deletePlane">Delete</button>
       </div>
-      
     </div>
   <script type="text/javascript" src="bower_components/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
   
-  <!--Populate plane tails-->
+  <!-- Populate dropdowns -->
   <script type="text/javascript">
     var tails = document.getElementById('plane-tails');
     var tailsd = document.getElementById('plane-tailsdelete');
+    var userOptions = document.getElementById('user-ids');
     
     axios.get('/plane/all').then(function(response) {
       var planes = response.data;
@@ -84,6 +83,13 @@
     }).catch(function(err) {
       console.log(err);
     }); // 
+    
+    axios.get('/user/all').then(function(response) {
+      var users = response.data;
+      users.forEach(function(user) {
+        userOptions.options[userOptions.options.length] = new Option(user.username, user._id);
+      });
+    }).catch(function(err) { console.log(err) });
   </script>
   <script type="text/javascript">
     $('#submitPlane').click(function() {
@@ -95,6 +101,53 @@
         $('#tail').val('');
         $('#hangar').val('');
       });
+    });
+  </script>
+  
+  <!--create new user-->
+  <script type="text/javascript">
+    $('#submitUser').click(function() {
+      var username = $('#username').val();
+      var password = $('#user_pass').val();
+      var user = { username: username, password: password };
+      $.post('/user/new', user, function(response) {
+        console.log(response);
+        $('#username').val('');
+        $('#password').val('');
+      });
+    });
+  </script>
+  
+  <!--delete user-->
+  <script type="text/javascript">
+    $('#removeUser').click(function() {
+      var id = $('userId').val();
+      axios.delete('/user/delete/' + id).then(function(response) {
+        console.log(response.data + 'has been deleted');
+        window.location.reload();
+      }).catch(function(err) { console.log(err) });
+    });
+  </script>
+  
+  <!--update plane-->
+  <script type="text/javascript">
+    $('#editPlane').click(function() {
+      var tail = $('#plane-tails').val();
+      var hangar = $('#edit-hangar').val();
+      var plane = { tail: tail, hangar: hangar };
+      axios.put('/plane', plane).then(function(response) {
+        console.log(response.data.tail + ' has been updated');
+      }).catch(function(err) { console.log(err) });
+    });
+  </script>
+  
+  <!--delete plane-->
+  <script type="text/javascript">
+    $('#deletePlane').click(function() {
+      var tail = $('#plane-tailsdelete').val();
+      axios.post('/plane/delete', { tail: tail }).then(function(response) {
+        console.log(response.data + ' has been deleted');
+      }).catch(function(err) { console.log(err) });
     });
   </script>
 </body>

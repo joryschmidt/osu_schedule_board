@@ -9,7 +9,7 @@ router.get('/all', board_controller.getPlanes);
 
 router.get('/hangar/:hangar', board_controller.getPlanesByHangar);
 
-router.post('/', board_controller.updatePlane);
+router.put('/', board_controller.updatePlane);
 
 router.post('/new', board_controller.createPlane);
 

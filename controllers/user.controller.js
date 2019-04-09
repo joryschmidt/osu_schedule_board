@@ -4,12 +4,10 @@ var bcrypt = require('bcrypt');
 // Register a new user
 exports.create = function(req, res, next) {
   
-  var email = req.body.email;
   var hash = bcrypt.hashSync(req.body.password, 10);
   
   var newUser = new User();
   newUser.username = req.body.username;
-  newUser.email = email;
   newUser.password = hash;
   if (req.body.isAdmin) {
     newUser.admin = true;
@@ -45,7 +43,7 @@ exports.login = function(req, res, next) {
       delete user.password;
       req.session.user = user;
       console.log('Login successful');
-      res.redirect('/#!/dashboard');
+      res.redirect('/');
       next();
     } else {
       console.log('Wrong password mate');
@@ -94,14 +92,13 @@ exports.deleteUser = function(req, res) {
   });
 };
 
-// Update the user - NOT FINISHED
 exports.updateUser = function(req, res) {
   
   var hash = bcrypt.hashSync(req.body.password, 10);
   
   User.update({ _id: req.params.id }, {
     $set: {
-      
+      password: hash
     }
   }, function(err, user) {
     if (err) {

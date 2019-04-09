@@ -42,14 +42,14 @@ app.use(cors());
 
 // REMEMBER TO REQUIREADMIN LATER
 
-app.use('/admin-panel', express.static(path.join(__dirname, 'admin')));
+app.use('/admin', express.static(path.join(__dirname, 'admin')));
 //app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 
 app.use('/', main);
 // app.use('/user', user);
 
 // REQUIREADMIN
-app.use('/admin', admin);
+// app.use('/admin', admin);
 app.use('/flight', flight);
 app.use('/plane', plane);
 app.use('/notice', notice);

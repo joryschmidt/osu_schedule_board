@@ -49,7 +49,7 @@ app.use('/', main);
 // app.use('/user', user);
 
 // REQUIREADMIN
-// app.use('/admin', admin);
+app.use('/admin', admin);
 app.use('/flight', flight);
 app.use('/plane', plane);
 app.use('/notice', notice);

@@ -2,4 +2,3 @@ Make new request and notice form popups disappear when clicked outside of the bo
 Style board
 
 Add user logins to app
-Use jquery to make all database interactions through AJAX in admin panel

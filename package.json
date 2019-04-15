@@ -1,6 +1,9 @@
 {
   "name": "osu-schedule-board",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.12.0"
+  },
   "description": "A schedule board for managing aircraft operations",
   "main": "app.js",
   "scripts": {
@@ -34,3 +37,4 @@
     "cors": "^2.8.5"
   }
 }
+  

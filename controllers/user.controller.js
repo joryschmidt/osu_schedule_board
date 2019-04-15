@@ -25,8 +25,7 @@ exports.create = function(req, res, next) {
     }
     else {
       console.log(user);
-      res.redirect('/');
-      next();
+      res.json(user);
     }
   });
 };
@@ -78,6 +77,18 @@ exports.getCurrentUser = function(req, res) {
     }
   });
 };
+
+// Get all users
+exports.getAllUsers = function(req, res) {
+  User.find(function(err, users) {
+    if (err) {
+      console.log(err);
+      res.status(500).json('No users');
+    } else {
+      res.json(users);
+    }
+  });
+}
 
 // Delete a user from the database
 exports.deleteUser = function(req, res) {

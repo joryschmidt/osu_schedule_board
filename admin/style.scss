@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-  
+  margin-bottom: 1.5rem;
 }
 
 .panel {
@@ -101,4 +101,20 @@ body {
       
     }
   }
+}
+
+.btn {
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+  padding: .7rem;
+  margin-top: .7rem;
+  min-width: 6rem;
+}
+
+.input {
+  padding: .5rem;
+}
+
+select {
+  padding: .5rem;
 }

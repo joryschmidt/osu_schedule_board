@@ -21,6 +21,11 @@ export class PlaneComponent implements OnInit {
     this.data.getFlightsByTail(this.tail).subscribe(flights => this.flights = flights);
   }
   
+  // ngOnChanges(changes: SimpleChanges) {
+  //   var change = changes.plane;
+  //   if (!change.firstChange) console.log(change);
+  // }
+  
   newFlight() {
     this.newRequest = !this.newRequest
   }

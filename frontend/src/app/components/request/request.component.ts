@@ -18,10 +18,12 @@ export class RequestComponent implements OnInit {
   @Input() tail:string;
   @Input() newRequest:boolean;
   @Output() newRequestChange = new EventEmitter<boolean>();
+  @Output() planeChange = new EventEmitter<any>();
   
   submitRequest() {
     this.data.newFlight(this.aircraft).subscribe(response => {
-      window.location.reload();
+      this.planeChange.emit(false);
+      this.newRequestChange.emit(false);
     });
   }
   

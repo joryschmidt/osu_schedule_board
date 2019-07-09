@@ -11,6 +11,7 @@ export class AppComponent {
   
   newRequest:boolean = false;
   newNoticeBool:boolean = false;
+  date:any;
   
   constructor(private data:DataService) {}
   
@@ -19,6 +20,16 @@ export class AppComponent {
   
   newFlight() {
     this.newRequest = !this.newRequest;
+  }
+  
+  generateReport() {
+    if (this.date) {
+      this.data.getFlightsByDate(this.date).subscribe(response => {
+        window.open(`${response}`);
+      });
+    } else {
+      console.log('Please select a date');
+    }
   }
   
   newNotice() {

@@ -1,4 +1,5 @@
 $color-osu: #b00;
+$color-grey: #eee;
 
 .hangar {
   border: 1px solid black;
@@ -6,7 +7,7 @@ $color-osu: #b00;
   
   &__header {
     padding: 3px;
-    background: linear-gradient(to right, lighten(blanchedalmond, 5%), $color-osu 35%);
+    background: linear-gradient(to right, lighten(blanchedalmond, 5%) 20%, $color-osu 95%);
     
     &--1 {
       

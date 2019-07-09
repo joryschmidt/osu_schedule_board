@@ -52,6 +52,10 @@ exports.getFlightsByTail = function(req, res) {
   Flight.find({ tail: req.params.tail }).sort({ date: 1 }).exec(handler(res));
 }
 
+exports.getFlightsByDate = function(req, res) {
+  Flight.find({ date: req.params.date }).sort({ time: 1 }).exec(handler(res));
+}
+
 exports.getTransientFlights = function(req, res) {
   Flight.find({ transient: true }).sort({ created: 1 }).exec(handler(res));
 }

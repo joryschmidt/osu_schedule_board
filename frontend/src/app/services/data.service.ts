@@ -17,6 +17,10 @@ export class DataService {
     return this.http.get('/flight/tail/' + tail);
   }
   
+  getFlightsByDate(date) {
+    return this.http.get('/flight/date/' + date);
+  }
+  
   newFlight(flightData) {
     return this.http.post('/flight/new', flightData);
   }

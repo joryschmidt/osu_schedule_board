@@ -9,6 +9,8 @@ router.get('/all', board_controller.getFlights);
 
 router.get('/tail/:tail', board_controller.getFlightsByTail);
 
+router.get('/date/:date', board_controller.getFlightsByDate);
+
 router.get('/transient', board_controller.getTransientFlights);
 
 router.get('/requested', board_controller.getHangarRequests);

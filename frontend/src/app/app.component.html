@@ -22,6 +22,8 @@
     <div class="controls">
       <button class="new-request-button board__button" (click)="newFlight()">New Request</button>
       <button class="new-notice-button board__button" (click)="newNotice()">New Special Notice</button>
+      <button class="generate-report-button board__button" (click)="generateReport()">Generate Report</button>
+      <input class="report-date-input" type="date" name="report-date" [(ngModel)]="date" />
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
     </div>
   </div>

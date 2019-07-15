@@ -26,6 +26,12 @@ export class AppComponent {
     if (this.date) {
       // if date is selected, generate report
       this.data.getFlightsByDate(this.date).subscribe(response => {
+        console.log(response);
+        if (response['length'] == 0) {
+          let wind = window.open('', 'Nothing here', 'width=500, height=500');
+          wind.document.write(`<h2>I got nothing for ${this.date}, homie</h2>`);
+          return '';
+        }
         var date = response[0].date;
         var items = [];
         var wind = window.open('', date, 'width=1000, height=1000');

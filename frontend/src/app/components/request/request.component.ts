@@ -24,6 +24,7 @@ export class RequestComponent implements OnInit {
     this.data.newFlight(this.aircraft).subscribe(response => {
       this.planeChange.emit(false);
       this.newRequestChange.emit(false);
+      window.location.reload();
     });
   }
   

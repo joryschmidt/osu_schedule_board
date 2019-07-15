@@ -29,6 +29,10 @@
     
   }
   
+  &__date {
+    
+  }
+  
   &__remarks {
     padding-left: 4px;
   }
@@ -47,7 +51,7 @@
 }
 
 .purple {
-  background: linear-gradient(to right, lighten(blanchedalmond, 5%), purple 110%);
+  background: linear-gradient(to right, lighten(blanchedalmond, 5%), #df1fdf 110%);
 }
 
 .green {

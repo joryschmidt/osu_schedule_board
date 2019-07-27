@@ -1,11 +1,41 @@
+@mixin respond($break) {
+  @if $break == laptop {
+    @media only screen and (max-width: 75em) { @content } // 1200px
+  }
+  
+  @if $break == tablet {
+    @media only screen and (max-width: 56.25em) { @content } // 900px
+  }
+  
+  @if $break == phone {
+    @media only screen and (max-width: 37.5em) { @content } // 600px
+  }
+}
+
 .request {
   position: fixed;
   padding: 5rem;
   width: 50%;
   background-color: #ecdfce;
-  top: 20rem;
-  left: 40rem;
+  // top: 20rem;
+  // left: 40rem;
+  top: 30%;
+  left: 20%;
   border-radius: 4px;
+  
+  @include respond(laptop) {
+    top: 0;
+    left: 0;
+    margin: 2rem;
+  }
+  
+  @include respond(tablet) {
+    width: 80%;
+  }
+  
+  @include respond(phone) {
+    padding: 1.5rem;
+  }
   
   &__header {
     
@@ -14,6 +44,11 @@
   &__form {
     display: grid;
     grid-template-columns: 2fr 5fr;
+    
+    @include respond(laptop) {
+      display: flex;
+      flex-direction: column;
+    }
     
     &__box {
       margin: 1rem;
@@ -44,6 +79,7 @@
     }
     
     &__RON {
+      margin: 1rem;
       
       &__label {
         margin: 0 1rem;
@@ -75,6 +111,11 @@
     &__right {
       display: grid;
       grid-template-columns: 2fr 1fr;
+      
+      @include respond(laptop) {
+        display: flex;
+        flex-direction: column;
+      }
     }
     
   }

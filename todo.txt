@@ -1,4 +1,3 @@
 Make new request and notice form popups disappear when clicked outside of the box
-Style board
 
 Add user logins to app

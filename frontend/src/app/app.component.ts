@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './services/data.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,11 @@ export class AppComponent {
   
   newFlight() {
     this.newRequest = !this.newRequest;
+    
+    // clicking on background will remove new request from screen
+    setTimeout(()=> { $('.request__backdrop').on('click', (event) => {
+      if ($(event.target).is('.request__backdrop')) this.newRequest= !this.newRequest;
+    }); }, 300);
   }
   
   generateReport() {
@@ -60,5 +66,10 @@ export class AppComponent {
   
   newNotice() {
     this.newNoticeBool = !this.newNoticeBool;
+    
+    // clicking on background will remove new special notice from screen
+    setTimeout(()=> { $('.special-notices__backdrop').on('click', (event) => {
+      if ($(event.target).is('.special-notices__backdrop')) this.newNoticeBool = !this.newNoticeBool;
+    }); }, 300);
   }
 }

@@ -23,7 +23,7 @@ export class SpecialNoticesComponent implements OnInit {
     this.newNoticeObj = {};
     this.editNoticeObj = {};
   }
-
+  
   // New Notice Methods
   submitNewNotice() {
     this.data.submitNotice(this.newNoticeObj).subscribe(response => {
@@ -33,6 +33,7 @@ export class SpecialNoticesComponent implements OnInit {
   
   discardNotice() {
     this.newNoticeObj = {};
+    this.newNoticeBool = false;
     this.newNoticeBoolChange.emit(false);
   }
   
@@ -42,10 +43,6 @@ export class SpecialNoticesComponent implements OnInit {
     this.data.editNotice(this.editNoticeObj).subscribe(response => {
       window.location.reload();
     });
-  }
-  
-  editNotice() {
-    this.editNoticeBool = !this.editNoticeBool;
   }
   
   discardEditNotice() {

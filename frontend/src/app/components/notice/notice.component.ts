@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-notice',
@@ -28,5 +29,10 @@ export class NoticeComponent implements OnInit {
   editNotice() {
     this.editNoticeObjChange.emit(this.noticeCopy);
     this.editNoticeBoolChange.emit(!this.editNoticeBool);
+    
+    // clicking on background will remove edit special notice from screen
+    setTimeout(()=> { $('.special-notices__backdrop').on('click', (event) => {
+      if ($(event.target).is('.special-notices__backdrop')) this.editNoticeBoolChange.emit(!this.editNoticeBool);
+    }); }, 300);
   }
 }

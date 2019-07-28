@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DateTime } from 'luxon';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-flight',
@@ -22,6 +23,11 @@ export class FlightComponent implements OnInit {
 
   editFlight() {
     this.newEditRequest = !this.newEditRequest;
+    
+    // clicking on background will remove edit request from screen
+    setTimeout(()=> { $('.request__backdrop').on('click', (event) => {
+      if ($(event.target).is('.request__backdrop')) this.newEditRequest = !this.newEditRequest;
+    }); }, 300);
   }
   
   // this method determines if a flight should be given a background color

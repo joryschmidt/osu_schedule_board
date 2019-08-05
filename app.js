@@ -10,7 +10,6 @@ var main = require('./routes/main');
 var flight = require('./routes/flight');
 var plane = require('./routes/plane');
 var notice = require('./routes/notice');
-// var user = require('./routes/user');
 var admin = require('./routes/admin');
 
 var db = 'mongodb://' + process.env.IP + '/sched';
@@ -46,7 +45,6 @@ app.use('/admin', express.static(path.join(__dirname, 'admin')));
 //app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 
 app.use('/', main);
-// app.use('/user', user);
 
 // REQUIREADMIN
 app.use('/admin', admin);

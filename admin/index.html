@@ -17,6 +17,8 @@
         <form class="users__form">
           <input class="input" type="text" id="username" name="username" placeholder="Username" />
           <input class="input" type="password" id="user_pass" name="password" placeholder="Password" />
+          <label for="new_admin">Admin</label>
+          <input type="checkbox" name="new_admin" id="new_admin" />
         </form>
         <button class="btn" id="submitUser">Submit</button>
       </div>
@@ -109,6 +111,10 @@
       var username = $('#username').val();
       var password = $('#user_pass').val();
       var user = { username: username, password: password };
+      
+      var admin = document.getElementById('new_admin').checked;
+      if (admin) user['admin'] = admin;
+      
       $.post('/admin/new', user, function(response) {
         console.log(response);
         $('#username').val('');

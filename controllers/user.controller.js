@@ -9,7 +9,7 @@ exports.create = function(req, res, next) {
   var newUser = new User();
   newUser.username = req.body.username;
   newUser.password = hash;
-  if (req.body.isAdmin) {
+  if (req.body.admin) {
     newUser.admin = true;
   }
   
@@ -32,7 +32,7 @@ exports.create = function(req, res, next) {
 
 // Login a user
 exports.login = function(req, res, next) {
-  User.findOne({ email: req.body.email }, function(err, user) {
+  User.findOne({ username: req.body.username }, function(err, user) {
     if (err) console.log(err);
     if (!user) {
       console.log("That user doesn't seem to exist");

@@ -43,7 +43,7 @@ body {
   letter-spacing: 1.5rem;
   text-align: center;
   
-  &__specific {
+  &--specific {
     @include respond(phone) {
       display: none;
     }

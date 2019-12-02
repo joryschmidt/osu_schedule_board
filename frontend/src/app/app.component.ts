@@ -60,7 +60,8 @@ export class AppComponent {
       });
       
     } else {
-      console.log('Please select a date');
+      let wind = window.open('', 'No date, man', 'width=500, height=500');
+      wind.document.write('<h2>You have to select a date if you want a report.</h2>');
     }
   }
   

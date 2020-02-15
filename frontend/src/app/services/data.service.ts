@@ -64,4 +64,8 @@ export class DataService {
   deleteNotice(id) {
     return this.http.delete('/notice/' + id);
   }
+  
+  logout() {
+    return this.http.get('/logout');
+  }
 }

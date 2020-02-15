@@ -100,7 +100,6 @@
       var hangar = $('#hangar').val();
       var aircraft = { tail: tail, hangar: hangar, based: true };
       $.post('/plane/new', aircraft, function(data) {
-        console.log(data);
         $('#tail').val('');
         $('#hangar').val('');
       });
@@ -116,7 +115,6 @@
       if (admin) user['admin'] = admin;
       
       $.post('/admin/new', user, function(response) {
-        console.log(response);
         $('#username').val('');
         $('#user_pass').val('');
       });

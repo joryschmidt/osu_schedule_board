@@ -29,6 +29,8 @@
         <button class="generate-report__button board__button" (click)="generateReport()">Generate Report</button>
       </div>
       
+      <div class="logout"><button class="logout__button board__button" (click)="logout()">Logout</button></div>
+      
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
     </div>
   </div>

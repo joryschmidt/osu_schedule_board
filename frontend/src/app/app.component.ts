@@ -73,4 +73,8 @@ export class AppComponent {
       if ($(event.target).is('.special-notices__backdrop')) this.newNoticeBool = !this.newNoticeBool;
     }); }, 300);
   }
+  
+  logout() {
+    this.data.logout().subscribe(res => console.log('Logged out'));
+  }
 }

@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
 var sessions = require('client-sessions');
+var helmet = require('helmet');
 
 var main = require('./routes/main');
 var flight = require('./routes/flight');
@@ -21,14 +22,14 @@ var app = express();
 app.use(sessions({
   cookieName: 'session',
   secret: process.env.SCHED_SESSION,
-  duration: 8 * 60 * 60 * 1000,
+  duration: 720 * 60 * 60 * 1000,
   activeDuration: 20 * 60 * 1000
 }));
 
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-
 
 
 
@@ -37,20 +38,20 @@ var cors = require('cors');
 app.use(cors());
 
 
-
-
 // REMEMBER TO REQUIREADMIN LATER
 
-app.use('/admin', express.static(path.join(__dirname, 'admin')));
-//app.use(express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
+app.use('/login', express.static(path.join(__dirname, 'static', 'login.html')));
+app.use('/admin', requireAdmin, express.static(path.join(__dirname, 'admin')));
+//app.use('/', express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 
-app.use('/', main);
 
 // REQUIREADMIN
-app.use('/admin', admin);
-app.use('/flight', flight);
-app.use('/plane', plane);
-app.use('/notice', notice);
+app.use('/admin', requireAdmin, admin);
+app.use('/flight', requireLogin, flight);
+app.use('/plane', requireLogin, plane);
+app.use('/notice', requireLogin, notice);
+
+app.use('/', main);
 
 // var port = process.env.PORT;
 var port = 8081;
@@ -67,7 +68,8 @@ function requireAdmin(req, res, next) {
   }
 }
 
+// CHANGE TO RELATIVE /login when going to production
 function requireLogin(req, res, next) {
   if (req.session.user) next();
-  else res.status(404).json(null);
+  else res.redirect('/login');
 }

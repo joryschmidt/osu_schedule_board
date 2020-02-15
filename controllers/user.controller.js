@@ -34,16 +34,11 @@ exports.create = function(req, res, next) {
 exports.login = function(req, res, next) {
   User.findOne({ username: req.body.username }, function(err, user) {
     if (err) console.log(err);
-    if (!user) {
-      console.log("That user doesn't seem to exist");
-      res.status(401).json({ "message": "That user doesn't seem to exist." });
-      next();
-    } else if (bcrypt.compareSync(req.body.password, user.password)) {
+    if (!user) res.sendStatus(500).send('No user by that username');
+    if (bcrypt.compareSync(req.body.password, user.password)) {
       delete user.password;
       req.session.user = user;
-      console.log('Login successful');
       res.redirect('/');
-      next();
     } else {
       console.log('Wrong password mate');
       res.status(401).json({ "message": "Wrong password, mate" });

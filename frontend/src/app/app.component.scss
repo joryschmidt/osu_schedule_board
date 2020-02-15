@@ -82,3 +82,12 @@ header {
   font-family: Roboto, sans-serif;
   cursor: pointer;
 }
+
+.logout {
+  margin-top: 2rem;
+  
+  &__button {
+    background-color: darkcyan;
+    color: white;
+  }
+}

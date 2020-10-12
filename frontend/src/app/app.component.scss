@@ -85,9 +85,12 @@ header {
 
 .logout {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   
   &__button {
     background-color: darkcyan;
     color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
   }
 }

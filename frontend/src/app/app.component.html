@@ -10,6 +10,7 @@
   
   <div class="section section--2">
     <div class="hangars">
+      <app-hangar [hangar]="8"></app-hangar>
       <app-hangar [hangar]="9"></app-hangar>
       <app-hangar-requests></app-hangar-requests>
       <app-hangared-aircraft></app-hangared-aircraft>
@@ -29,7 +30,7 @@
         <button class="generate-report__button board__button" (click)="generateReport()">Generate Report</button>
       </div>
       
-      <div class="logout"><button class="logout__button board__button" (click)="logout()">Logout</button></div>
+      <div class="logout"><a class="logout__button board__button" href="/logout">Logout</a></div>
       
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
     </div>

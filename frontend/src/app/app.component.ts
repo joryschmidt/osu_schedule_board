@@ -74,7 +74,10 @@ export class AppComponent {
     }); }, 300);
   }
   
-  logout() {
-    this.data.logout().subscribe(res => console.log('Logged out'));
-  }
+  // logout() {
+  //   this.data.logout().subscribe(res => {
+  //     console.log('Logged out'); 
+  //     window.location.href = '/logout'; 
+  //   });
+  // }
 }

@@ -38,6 +38,7 @@ exports.login = function(req, res, next) {
     if (bcrypt.compareSync(req.body.password, user.password)) {
       delete user.password;
       req.session.user = user;
+      console.log('User logged in');
       res.redirect('/');
     } else {
       console.log('Wrong password mate');

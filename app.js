@@ -23,7 +23,7 @@ app.use(sessions({
   cookieName: 'session',
   secret: process.env.SCHED_SESSION,
   duration: 720 * 60 * 60 * 1000,
-  activeDuration: 20 * 60 * 1000
+  activeDuration: 720 * 60 * 60 * 1000
 }));
 
 app.use(helmet());
@@ -42,7 +42,10 @@ app.use(cors());
 
 app.use('/login', express.static(path.join(__dirname, 'static', 'login.html')));
 app.use('/admin', requireAdmin, express.static(path.join(__dirname, 'admin')));
-//app.use('/', express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
+
+// main routes come first or else logging in doesn't work
+app.use('/', main);
+app.use('/', redirectIfNotLoggedIn, express.static(path.join(__dirname, 'frontend', 'dist', 'frontend')));
 
 
 // REQUIREADMIN
@@ -51,9 +54,8 @@ app.use('/flight', requireLogin, flight);
 app.use('/plane', requireLogin, plane);
 app.use('/notice', requireLogin, notice);
 
-app.use('/', main);
 
-// var port = process.env.PORT;
+// var port = process.env.PORT || 8080
 var port = 8081;
 app.listen(port, function() {
   console.log('App listening on port', port);
@@ -68,8 +70,14 @@ function requireAdmin(req, res, next) {
   }
 }
 
-// CHANGE TO RELATIVE /login when going to production
 function requireLogin(req, res, next) {
+  if (req.session.user) next();
+  else {
+    res.sendStatus(404);
+  }
+}
+
+function redirectIfNotLoggedIn(req, res, next) {
   if (req.session.user) next();
   else res.redirect('/login');
 }

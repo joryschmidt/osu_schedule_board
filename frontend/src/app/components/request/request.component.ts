@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Airplane } from '../../models/airplane';
 
 @Component({
   selector: 'app-request',
@@ -14,7 +15,7 @@ export class RequestComponent implements OnInit {
     if (this.tail) this.aircraft.tail = this.tail;
   }
 
-  aircraft = { tail: '' }
+  aircraft = new Airplane();
   @Input() tail:string;
   @Input() newRequest:boolean;
   @Output() newRequestChange = new EventEmitter<boolean>();
@@ -29,7 +30,7 @@ export class RequestComponent implements OnInit {
   }
   
   discardRequest() {
-    this.aircraft = { tail: '' };
+    this.aircraft = new Airplane();
     this.newRequestChange.emit(false);
   }
 }

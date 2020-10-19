@@ -14,9 +14,16 @@ export class AppComponent {
   newNoticeBool:boolean = false;
   date:any;
   
+  user:any;
+  isAdmin:boolean = false;
+
   constructor(private data:DataService) {}
   
   ngOnInit() {
+    this.data.getUser().subscribe(res => {
+      this.user = res;
+      if (this.user.admin) this.isAdmin = true;
+    });
   }
   
   newFlight() {
@@ -32,7 +39,6 @@ export class AppComponent {
     if (this.date) {
       // if date is selected, generate report
       this.data.getFlightsByDate(this.date).subscribe(response => {
-        console.log(response);
         if (response['length'] == 0) {
           let wind = window.open('', 'Nothing here', 'width=500, height=500');
           wind.document.write(`<h2>I got nothing for ${this.date}, homie</h2>`);

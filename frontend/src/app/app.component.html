@@ -30,7 +30,10 @@
         <button class="generate-report__button board__button" (click)="generateReport()">Generate Report</button>
       </div>
       
-      <div class="logout"><a class="logout__button board__button" href="/logout">Logout</a></div>
+      <div class="logout">
+        <a class="logout__button board__button" href="/logout">Logout</a>
+        <a class="admin__button board__button" *ngIf="isAdmin" href="/admin">Admin Panel</a>
+      </div>
       
       <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
     </div>

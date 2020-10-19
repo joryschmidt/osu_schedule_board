@@ -94,3 +94,12 @@ header {
     font-size: 1.5rem;
   }
 }
+
+.admin {
+  &__button {
+    background-color: #c00;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+}

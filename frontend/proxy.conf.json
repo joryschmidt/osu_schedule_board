@@ -34,5 +34,17 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/getUser/*" : {
+    "target": "https://4b7eb2dd570f4e8e96e1ebc5333acb25.vfs.cloud9.us-east-1.amazonaws.com:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/admin/*" : {
+    "target": "https://4b7eb2dd570f4e8e96e1ebc5333acb25.vfs.cloud9.us-east-1.amazonaws.com:8081",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

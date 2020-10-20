@@ -16,7 +16,7 @@ export class AppComponent {
   
   user:any;
   isAdmin:boolean = false;
-
+  
   constructor(private data:DataService) {}
   
   ngOnInit() {
@@ -36,11 +36,15 @@ export class AppComponent {
   }
   
   generateReport() {
+    // for style
+    let style = "<style>font-family: sans-serif;</style>";
     if (this.date) {
       // if date is selected, generate report
       this.data.getFlightsByDate(this.date).subscribe(response => {
+        console.log(response);
         if (response['length'] == 0) {
           let wind = window.open('', 'Nothing here', 'width=500, height=500');
+          wind.document.write(style);
           wind.document.write(`<h2>I got nothing for ${this.date}, homie</h2>`);
           return '';
         }

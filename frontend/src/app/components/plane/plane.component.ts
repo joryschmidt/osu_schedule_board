@@ -27,6 +27,11 @@ export class PlaneComponent implements OnInit {
   // }
   
   newFlight() {
-    this.newRequest = !this.newRequest
+    this.newRequest = !this.newRequest;
+
+    // clicking on background will remove new request from screen
+    setTimeout(()=> { $('.request__backdrop').on('click', (event) => {
+      if ($(event.target).is('.request__backdrop')) this.newRequest = !this.newRequest;
+    }); }, 300);
   }
 }

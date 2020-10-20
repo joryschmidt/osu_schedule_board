@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-plane',

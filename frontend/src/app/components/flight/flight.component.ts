@@ -17,6 +17,7 @@ export class FlightComponent implements OnInit {
   @Input() flight:any;
   @Input() based:boolean;
   @Output() flightDeleted = new EventEmitter<boolean>();
+  @Output() requestChanged = new EventEmitter<any>();
   newEditRequest:boolean = false;
   displayStyle:string;
 
@@ -36,7 +37,10 @@ export class FlightComponent implements OnInit {
 
   // changes aircraft without page reload
   planeChangeHandler(aircraft:any) {
-    if (aircraft) this.flight = aircraft;
+    if (aircraft) {
+      this.flight = aircraft;
+      this.ngOnInit();
+    }
     else this.flightDeleted.emit(true);
   }
   

@@ -1,4 +1,4 @@
 <div class="hangar-requests">
   <div class="hangar-requests__header">Hangar Requests</div>
-  <app-flight *ngFor="let flight of flights" [flight]="flight" (flightDeleted)="flightDeleteHandler($event)"></app-flight>
+  <app-flight *ngFor="let flight of flights" [flight]="flight" (flightDeleted)="flightDeleteHandler($event)" (requestChanged)="requestChangeHandler($event)"></app-flight>
 </div>

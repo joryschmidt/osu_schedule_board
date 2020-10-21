@@ -12,13 +12,13 @@
     <div class="hangars">
       <app-hangar [hangar]="8"></app-hangar>
       <app-hangar [hangar]="9"></app-hangar>
-      <app-hangar-requests></app-hangar-requests>
-      <app-hangared-aircraft></app-hangared-aircraft>
+      <app-hangar-requests [planeChange]="planeChange" (requestChanged)="requestChangeHandler($event)"></app-hangar-requests>
+      <app-hangared-aircraft [planeChange]="planeChange" (requestChanged)="requestChangeHandler($event)"></app-hangared-aircraft>
     </div>
   </div>
   
   <div class="section section--3">
-      <app-transients [(planeChange)]="planeChange"></app-transients>
+      <app-transients [planeChange]="planeChange" (requestChanged)="requestChangeHandler($event)"></app-transients>
       <app-special-notices [(newNoticeBool)]="newNoticeBool"></app-special-notices>
     <div class="controls">
       <button class="new-request-button board__button" (click)="newFlight()">New Request</button>

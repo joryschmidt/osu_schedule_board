@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -19,19 +19,20 @@ export class TransientsComponent implements OnInit, OnChanges {
     });
   }
 
-  // delete flights without rerender
+  // no reload rendering
+  @Input() planeChange:any;
+  @Output() requestChanged = new EventEmitter<any>();
+
   flightDeleteHandler(deleted:boolean) {
     if (deleted) this.ngOnInit();
   }
 
-  // This is to rerender transient aircraft component on new request
-
-  @Input() planeChange:boolean;
-  @Output() planeChangeChange = new EventEmitter<boolean>();
+  requestChangeHandler(request:any) {
+    this.ngOnInit();
+    this.requestChanged.emit(request);
+  }
 
   ngOnChanges() {
     this.ngOnInit();
-    this.planeChange = false;
-    this.planeChangeChange.emit(false);
   }
 }

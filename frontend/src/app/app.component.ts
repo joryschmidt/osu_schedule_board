@@ -10,7 +10,9 @@ import * as $ from 'jquery';
 export class AppComponent {
   title:string = 'OSU Schedule Board';
 
-  planeChange:boolean = false;
+  planeChange:any;
+  requestChange:any;
+
   newRequest:boolean = false;
   newNoticeBool:boolean = false;
   date:any;
@@ -84,7 +86,11 @@ export class AppComponent {
   }
 
   planeChangeHandler(aircraft:any) {
-    this.planeChange = true;
+    this.planeChange = aircraft;
+  }
+
+  requestChangeHandler(request:any) {
+    this.planeChange = request;
   }
   
   // logout() {

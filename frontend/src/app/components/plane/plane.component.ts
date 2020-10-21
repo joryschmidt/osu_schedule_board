@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import * as $ from 'jquery';
 
@@ -22,10 +22,10 @@ export class PlaneComponent implements OnInit {
     this.data.getFlightsByTail(this.tail).subscribe(flights => this.flights = flights);
   }
   
-  // ngOnChanges(changes: SimpleChanges) {
-  //   var change = changes.plane;
-  //   if (!change.firstChange) console.log(change);
-  // }
+  planeChangeHandler(aircraft:any) {
+    this.plane = aircraft;
+    this.ngOnInit();
+  }
   
   newFlight() {
     this.newRequest = !this.newRequest;

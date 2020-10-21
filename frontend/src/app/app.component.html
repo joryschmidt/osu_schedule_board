@@ -18,7 +18,7 @@
   </div>
   
   <div class="section section--3">
-      <app-transients></app-transients>
+      <app-transients [(planeChange)]="planeChange"></app-transients>
       <app-special-notices [(newNoticeBool)]="newNoticeBool"></app-special-notices>
     <div class="controls">
       <button class="new-request-button board__button" (click)="newFlight()">New Request</button>
@@ -35,7 +35,7 @@
         <a class="admin__button board__button" *ngIf="isAdmin" href="/admin">Admin Panel</a>
       </div>
       
-      <app-request *ngIf="newRequest" [(newRequest)]="newRequest"></app-request>
+      <app-request *ngIf="newRequest" [(newRequest)]="newRequest" (planeChange)="planeChangeHandler($event)"></app-request>
     </div>
   </div>
 </div>

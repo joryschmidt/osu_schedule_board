@@ -9,7 +9,8 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
   title:string = 'OSU Schedule Board';
-  
+
+  planeChange:boolean = false;
   newRequest:boolean = false;
   newNoticeBool:boolean = false;
   date:any;
@@ -80,6 +81,10 @@ export class AppComponent {
     setTimeout(()=> { $('.special-notices__backdrop').on('click', (event) => {
       if ($(event.target).is('.special-notices__backdrop')) this.newNoticeBool = !this.newNoticeBool;
     }); }, 300);
+  }
+
+  planeChangeHandler(aircraft:any) {
+    this.planeChange = true;
   }
   
   // logout() {

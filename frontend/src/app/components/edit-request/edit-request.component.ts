@@ -19,10 +19,12 @@ export class EditRequestComponent implements OnInit {
   @Output() aircraftChange = new EventEmitter<any>();
   @Input() newEditRequest:boolean;
   @Output() newEditRequestChange = new EventEmitter<boolean>();
+  @Output() planeChange = new EventEmitter<any>();
   
   editRequest() {
     this.data.updateFlight(this.aircraft).subscribe(response => {
-      window.location.reload();
+      this.planeChange.emit(this.aircraft);
+      this.newEditRequestChange.emit(false);
     });
   }
   
@@ -33,7 +35,7 @@ export class EditRequestComponent implements OnInit {
   
   completeRequest() {
     this.data.deleteFlight(this.aircraft._id).subscribe(response => {
-      window.location.reload();
+      this.planeChange.emit(null);
     });
   }
 }

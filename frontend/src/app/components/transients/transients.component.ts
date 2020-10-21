@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './transients.component.html',
   styleUrls: ['./transients.component.scss']
 })
-export class TransientsComponent implements OnInit {
+export class TransientsComponent implements OnInit, OnChanges {
 
   constructor(private data:DataService) { }
 
@@ -19,4 +19,14 @@ export class TransientsComponent implements OnInit {
     });
   }
 
+  // This is to rerender transient aircraft component on new request
+
+  @Input() planeChange:boolean;
+  @Output() planeChangeChange = new EventEmitter<boolean>();
+
+  ngOnChanges() {
+    this.ngOnInit();
+    this.planeChange = false;
+    this.planeChangeChange.emit(false);
+  }
 }

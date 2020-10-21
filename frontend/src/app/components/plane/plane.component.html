@@ -4,4 +4,4 @@
     <app-flight *ngFor="let flight of flights" [flight]="flight" [based]="true" class="app-flight"></app-flight>
   </div>
 </div>
-<app-request *ngIf="newRequest" [(newRequest)]="newRequest" [tail]="tail"></app-request>
+<app-request *ngIf="newRequest" [(newRequest)]="newRequest" [tail]="tail" (planeChange)="planeChangeHandler($event)"></app-request>

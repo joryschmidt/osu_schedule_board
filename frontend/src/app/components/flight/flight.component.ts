@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DateTime } from 'luxon';
 import * as $ from 'jquery';
 
@@ -9,10 +9,14 @@ import * as $ from 'jquery';
 })
 export class FlightComponent implements OnInit {
 
+  // 
+  // This component has to let parent component know it must rerender
+  //
   constructor() { }
 
   @Input() flight:any;
   @Input() based:boolean;
+  @Output() flightDeleted = new EventEmitter<boolean>();
   newEditRequest:boolean = false;
   displayStyle:string;
 
@@ -28,6 +32,12 @@ export class FlightComponent implements OnInit {
     setTimeout(()=> { $('.request__backdrop').on('click', (event) => {
       if ($(event.target).is('.request__backdrop')) this.newEditRequest = !this.newEditRequest;
     }); }, 300);
+  }
+
+  // changes aircraft without page reload
+  planeChangeHandler(aircraft:any) {
+    if (aircraft) this.flight = aircraft;
+    else this.flightDeleted.emit(true);
   }
   
   // this method determines if a flight should be given a background color

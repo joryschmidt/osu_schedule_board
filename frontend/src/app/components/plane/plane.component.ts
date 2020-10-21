@@ -26,6 +26,10 @@ export class PlaneComponent implements OnInit {
     this.plane = aircraft;
     this.ngOnInit();
   }
+
+  flightDeleteHandler(deleted:boolean) {
+    if (deleted) this.ngOnInit();
+  }
   
   newFlight() {
     this.newRequest = !this.newRequest;

@@ -19,6 +19,11 @@ export class TransientsComponent implements OnInit, OnChanges {
     });
   }
 
+  // delete flights without rerender
+  flightDeleteHandler(deleted:boolean) {
+    if (deleted) this.ngOnInit();
+  }
+
   // This is to rerender transient aircraft component on new request
 
   @Input() planeChange:boolean;

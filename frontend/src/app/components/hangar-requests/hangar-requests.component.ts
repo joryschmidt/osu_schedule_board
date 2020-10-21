@@ -17,4 +17,8 @@ export class HangarRequestsComponent implements OnInit {
       this.flights = flights;
     });
   }
+
+  flightDeleteHandler(deleted:boolean) {
+    if (deleted) this.ngOnInit();
+  }
 }

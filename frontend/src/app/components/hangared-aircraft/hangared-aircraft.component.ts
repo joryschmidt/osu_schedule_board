@@ -16,4 +16,7 @@ export class HangaredAircraftComponent implements OnInit {
     this.data.getHangaredAircraft().subscribe(flights => this.flights = flights);
   }
 
+  flightDeleteHandler(deleted:boolean) {
+    if (deleted) this.ngOnInit();
+  }
 }

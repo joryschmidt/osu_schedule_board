@@ -1,4 +1,4 @@
 <div class="hangared-aircraft">
   <div class="hangared-aircraft__header">Hangared Aircraft</div>
-  <app-flight *ngFor="let flight of flights" [flight]="flight" (flightDeleted)="flightDeleteHandler($event)"></app-flight>
+  <app-flight *ngFor="let flight of flights" [flight]="flight" (flightDeleted)="flightDeleteHandler($event)" (requestChanged)="requestChangeHandler($event)"></app-flight>
 </div>

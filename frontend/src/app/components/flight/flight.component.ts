@@ -40,6 +40,7 @@ export class FlightComponent implements OnInit {
     if (aircraft) {
       this.flight = aircraft;
       this.ngOnInit();
+      this.requestChanged.emit(aircraft);
     }
     else this.flightDeleted.emit(true);
   }

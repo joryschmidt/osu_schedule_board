@@ -1,4 +1,4 @@
 <div class="transients">
   <div class="transients__header">Transients</div>
-  <app-flight *ngFor="let flight of flights" [flight]="flight" (flightDeleted)="flightDeleteHandler($event)"></app-flight>
+  <app-flight *ngFor="let flight of flights" [flight]="flight" (flightDeleted)="flightDeleteHandler($event)" (requestChanged)="requestChangeHandler($event)"></app-flight>
 </div>

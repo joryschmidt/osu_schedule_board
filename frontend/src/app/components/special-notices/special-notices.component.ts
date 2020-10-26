@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './special-notices.component.html',
   styleUrls: ['./special-notices.component.scss']
 })
-export class SpecialNoticesComponent implements OnInit {
+export class SpecialNoticesComponent implements OnInit, OnChanges {
 
   constructor(private data:DataService) { }
   
@@ -23,11 +23,21 @@ export class SpecialNoticesComponent implements OnInit {
     this.newNoticeObj = {};
     this.editNoticeObj = {};
   }
+
+  ngOnChanges() {
+    this.data.getAllNotices().subscribe(notices => this.notices = notices);
+  }
+
+  reload() {
+  }
   
   // New Notice Methods
   submitNewNotice() {
     this.data.submitNotice(this.newNoticeObj).subscribe(response => {
-      window.location.reload();
+      this.notices = [...this.notices, response];
+      this.newNoticeObj = {};
+      this.newNoticeBool = false;
+      this.newNoticeBoolChange.emit(false);
     });
   }
   
@@ -39,9 +49,8 @@ export class SpecialNoticesComponent implements OnInit {
   
   // Edit Notice Methods
   submitEditNotice() {
-    console.log(this.editNoticeObj);
     this.data.editNotice(this.editNoticeObj).subscribe(response => {
-      window.location.reload();
+      this.editNoticeBool = false;
     });
   }
   
@@ -52,7 +61,9 @@ export class SpecialNoticesComponent implements OnInit {
   
   deleteNotice() {
     this.data.deleteNotice(this.editNoticeObj._id).subscribe(response => {
-      window.location.reload();
+      this.ngOnInit();
+      this.editNoticeObj = {};
+      this.editNoticeBool = !this.editNoticeBool;
     });
   }
 }

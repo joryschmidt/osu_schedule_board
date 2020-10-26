@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -6,7 +6,7 @@ import * as $ from 'jquery';
   templateUrl: './notice.component.html',
   styleUrls: ['./notice.component.scss']
 })
-export class NoticeComponent implements OnInit {
+export class NoticeComponent implements OnInit, OnChanges {
 
   constructor() { }
 
@@ -14,11 +14,16 @@ export class NoticeComponent implements OnInit {
     this.text = this.notice.text;
     this.noticeCopy = this.notice;
   }
+
+  ngOnChanges() {
+    this.ngOnInit();
+  }
   
   text:string;
   noticeCopy:any;
   
   @Input() notice:any;
+  @Input() newNoticeObject:any;
   
   @Input() editNoticeBool:boolean;
   @Output() editNoticeBoolChange = new EventEmitter<boolean>();

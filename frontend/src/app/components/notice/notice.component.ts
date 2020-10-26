@@ -23,7 +23,6 @@ export class NoticeComponent implements OnInit, OnChanges {
   noticeCopy:any;
   
   @Input() notice:any;
-  @Input() newNoticeObject:any;
   
   @Input() editNoticeBool:boolean;
   @Output() editNoticeBoolChange = new EventEmitter<boolean>();

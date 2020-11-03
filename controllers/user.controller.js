@@ -57,7 +57,10 @@ exports.logout = function(req, res) {
 // Get a JSON object representing the logged in user
 exports.getUser = function(req, res) {
   var user = req.session.user;
-  if (user) res.json(user);
+  if (user) {
+    delete user.password;
+    res.json(user);
+  }
   else res.status(404).json(null);
 };
 
@@ -76,7 +79,7 @@ exports.getCurrentUser = function(req, res) {
 
 // Get all users
 exports.getAllUsers = function(req, res) {
-  User.find(function(err, users) {
+  User.find({}, { password: 0 }, function(err, users) {
     if (err) {
       console.log(err);
       res.status(500).json('No users');

@@ -93,6 +93,7 @@
       });
     }).catch(function(err) { console.log(err) });
   </script>
+
   <script type="text/javascript">
   // create plane
     $('#submitPlane').click(function() {
@@ -125,7 +126,6 @@
       var id = $('#user-ids').val();
       axios.delete('/admin/user/delete/' + id).then(function(response) {
         console.log(response.data + 'has been deleted');
-        window.location.reload();
       }).catch(function(err) { console.log(err) });
     });
   
@@ -147,6 +147,8 @@
       var tail = $('#plane-tailsdelete').val();
       axios.post('/plane/delete', { tail: tail }).then(function(response) {
         console.log(response.data + ' has been deleted');
+
+        $('#plane-tailsdelete').val('');
       }).catch(function(err) { console.log(err) });
     });
   </script>
